@@ -1,0 +1,1515 @@
+%%
+\documentclass{article}
+%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage[a4paper,left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multirow}
+\usepackage{tablefootnote}
+%%
+\begin{document}
+%%
+\title{RoboCup Rescue Agent Simulation League\\
+       2018 Competition Rules}
+\author{Luis G. Nardin, Sayed M. R. Modaresi, Dina Helal,\\
+Kazunori Iwata, Okan A{\c s}ik and Farshid Faraji}
+\date{Version 1.0}
+%%
+\maketitle
+%%
+\begin{abstract}
+%%
+This document describes the rules and the ranking formula for the 2018 RoboCup 
+Rescue Agent Simulation League competitions.
+%%
+\end{abstract}
+%%
+\section{Introduction}
+\label{sec:introduction}
+%%
+Natural disasters are major adverse events that cause large-scale economic, 
+human, and environmental losses. They are usually difficult to predict and even 
+more challenging to prevent from happening. These characteristics demand 
+disaster management strategies to be in place to reduce the negative impact of 
+the disaster. Disaster management is usually divided in four phases:
+%%
+\begin{itemize}
+%%
+\item \emph{Mitigation} includes the identification of hazards, the assessment 
+of threats, and the implementation of measures to reduce potential losses and 
+damages.
+%%
+\item \emph{Preparedness} includes the elaboration of plans to deal with  
+disasters and their consequences. This phase aims to have equipment and 
+procedures ready for use when a disaster occurs.
+%%
+\item \emph{Response} includes the search and rescue actions executed during 
+and just after a disaster.
+%%
+\item \emph{Recovery} takes place after the occurrence of a disaster and 
+involves the assistance of affected people and the restoration of the basic 
+services.
+%%
+\end{itemize}
+  
+Efficacious response plans are essential for reducing the negative impacts of 
+natural disasters. These plans are usually elaborated by policy-makers based on 
+previous experiences, but usually with limited efficacy evaluation. Assess
+response plans is a challenging task as one cannot reproduce the real conditions
+of a natural disaster and its effects in a real environmental settings just for
+assessment purposes. Therefore, simulation plays a key role in assisting to
+assess response plans by enabling the reproduction of conditions similar to
+real disaster situations in an artificial environmental setting.
+
+The RoboCup Rescue Agent Simulation League mission is to promote research and 
+development in this socially significant domain at various levels. The effective
+implementation of this mission is translated into three main goals. First, the
+league aims to provide a simulation software able to realistically represent
+natural disaster scenarios where response plans may be assessed. Second, it aims
+to define evaluation benchmarks for response plans that may be used by
+policy-makers. Finally, it aims to promote these research and development
+activities by conducting competitions to stimulate the exchange of ideas and
+experience among practitioners. This in turn may help in the development of more
+sophisticated and formalized plans to efficaciously respond to natural disasters.
+
+The RoboCup Rescue Agent Simulation competition held during the RoboCup is
+focused mostly on the third objective. The competition is sub-divided in the
+%%
+\begin{itemize}
+%%
+\item RoboCup Rescue Agent Simulation Competition (Section~\ref{sec:agent})
+%%
+\item Technical Challenge Competition (Section~\ref{sec:technical})
+%%
+\item Infrastructure Competition (Section~\ref{sec:infrastructure})
+%%
+\end{itemize}
+%%
+\section{RoboCup Rescue Agent Simulation Competition}
+\label{sec:agent}
+%%
+The RoboCup Rescue Agent Simulation Competition involves primarily
+evaluating the performance of agent teams developed using the ADF Framework 
+(\url{https://github.com/roborescue/rcrs-adf-core}, find a sample implementation
+at \url{https://github.com/roborescue/rcrs-adf-sample}) on different maps of the
+RoboCup Rescue Agent Simulation (RCRS) platform
+ (\url{https://github.com/roborescue/rcrs-server}). Specifically, it involves
+evaluating coordination algorithms enabling group of Ambulances, Police Forces,
+and Fire Brigades to rescue civilians and extinguish fires in cities where an
+earthquake has just occurred. Each team is evaluated on a set of scenarios that
+represent different disaster situations (e.g., civilians and fires, major fire
+in one corner of a city, blocked roads to refuges, damaged platoon agents, fire
+maps, civilian maps where only fires need to be extinguished or civilians need
+be saved).
+
+This competition is divided in three rounds (i.e., preliminary, semi-final, and 
+final rounds). At each round, the teams provide their code that will be 
+executed on a set of scenarios and a score calculated to each scenario.
+
+In addition to the teams performance on the scenarios, the teams are also
+evaluated based on a presentation of the strategy they implemented (see
+Section~\ref{sec:presentation}). The score obtained in this presentation counts
+as an additional scenario in all rounds.
+
+At the end of each round, a set of teams with the highest sum of scores
+considering all the scenarios (including the presentation score) are selected to
+move to the next round of the competition.
+
+The RoboCup Rescue Agent Simulation Technical Committee is responsible to 
+elaborate the set of scenarios for the competition and all teams code are
+executed on the same set of scenarios.
+%%
+\subsection{Presentation}
+\label{sec:presentation}
+%%
+The presentation aims to share the knowledge of the teams and improve the 
+academic research aspects of the league. Each team will have $20$ minutes to 
+present their implementation and another $10$ minutes for questions and answers.
+A presentation template is available at
+\url{https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx}.
+
+The presentation will be evaluated by a panel of experts and the leader of the 
+other teams. The final evaluation of the presentation will be incorporated into 
+the score of the preliminary, semi-final and final rounds. The presentations
+will be evaluated according to a set of criteria:
+%%
+\begin{itemize}
+%%
+\item \emph{Relevance} (5 points) Evaluates how relevant is the team's approach 
+to the goals of the RoboCup Rescue. 0 means it is not relevant and 5 means it 
+is very relevant.
+%%
+\item \emph{Originality} (5 points) Evaluates how original is the proposed 
+team's approach to RoboCup Rescue. 0 means it is not original and 5 means it is 
+very original.
+%%
+\item \emph{Significance} (5 points) Evaluates how significant to the league is 
+the proposed team's approach. 0 means it is not significant and 5 means it is 
+very significant.
+%%
+\item \emph{Slide Content} (5 points) Evaluates the quality and completeness 
+of the presentation material with respect to the team' strategy and the 
+readability. 0 means that the presentation slides are of poor quality with 
+respect to the content and 5 means that it is very informative and complete.
+%%
+\item \emph{Slide Structure} (5 points) Evaluates the structure of the 
+presentation material. 0 means that the presentation slides are poorly 
+structured and 5 means that it is very well structured.
+%%
+\item \emph{Talk} (5 points) Evaluates how much clear and easy to follow was 
+the presentation and explanation, and whether the presenter had a positive 
+attitude or not with respect to the presentation and the raised questions. 0 
+means the presentation is not clear or the presenter had a bad attitude and 5
+means the presentation is clear and the presenter had good attitude.
+%%
+\end{itemize}
+%%
+
+Each team's presentation score will be calculated taking into account the sum 
+of points given by the other teams excluding the 3 (three) best and the 3 
+(three) worst scores, plus the points given by the 2 Technical Committee members 
+who are not member of any team participating on the RoboCup Rescue Simulation 
+Agent Competition.
+
+The score of each team will then be included in the ranking calculation in 
+Section~\ref{subsec:ranking} as a scenario in all rounds that the team
+participates.
+
+All teams will have the same number of evaluations and the same evaluators. In 
+case some evaluator is not able to participate in the evaluation of all teams' 
+presentation, his/her evaluation will be disregarded.
+
+Team leaders or a representative assigned by the team leader must be present
+at all other teams presentation. The presentation session chair will check if
+the representative of each team is present at the beginning of each
+presentation, if there is no representative present the team's presentation
+score will be set to 0 (zero) and all the scores assigned by that team will be
+disregarded.
+%%
+\subsection{Rules}
+\label{sec:rules}
+%%
+\begin{itemize}
+%%
+\item[(a)] \textbf{Remote participation:} Remote participation is not allowed in
+any circumstance. At least one team member must register and be locally present
+at the venue.
+%%
+\item[(b)] \textbf{Rounds:} The competition is structured into three rounds: 
+one preliminary round, one semifinal round, and one final round. The preliminary
+round will be executed in two consecutive days (first and second days of the
+competition), while the semifinal and final rounds are executed in one day each
+(third and fourth days of competition respectively).
+%%
+\item[(c)] \textbf{Sessions:} Each round consists of several sessions. A session
+is comprised of a set of simulations in different scenarios. A member of the
+Technical Committee will chair each session. The session chair is responsible
+for executing the simulations, collecting scores and logs, and handling any
+issues that arise during the session.
+%%
+\item[(d)] \textbf{Code submission:} All teams must submit the team' source 
+code (binary code will not be accepted) and adequate compiled scripts before the
+start of each round. The number and time of submissions and specific
+requirements will be explained in the brief presentation in the competition
+setup time at the venue. The Technical Committee has the authority to change the
+time of submissions and to audit all submitted teams' source-code.
+%%
+\item[(e)] \textbf{Scenarios:} The scenarios will be provided by the Technical 
+Committee. Teams shall NOT know the disaster situation (i.e., map, random seeds,
+simulator configuration, parameter values, and phases of execution) of the
+session before it starts. All the conditions for a particular disaster situation
+will be identical for all the teams. A scenario is composed of a map, a set of
+rescue agents and civilians, and a set of configuration options for each of the
+simulator components.
+%%
+\item[(f)] \textbf{Maps:} Each map is constrained to a maximum of $10,000$ roads
+and $10,000$ buildings. The building and road entrances are supposed to be fully
+connected. A validation tool will be used to check the full connectivity of
+roads and building entrances in each map. Teams do not have the right to
+complain in case road or building entrances are not fully connected if evidenced
+that this was not detected by the validation tool.
+%%
+\item[(g)] \textbf{Agents:} Teams shall implement all types of agents using the 
+ADF Framework. Teams can only implement their own code to replace or extend the classes:
+
+\footnotesize
+\texttt{adf.component.extraction.ExtAction}
+
+\texttt{adf.component.module.algorithm.Clustering}
+
+\texttt{adf.component.module.algorithm.PathPlanning}
+
+\texttt{adf.component.module.complex.TargetDetector}
+
+\texttt{adf.component.module.complex.TargetAllocator}
+
+\texttt{adf.component.centralized.CommandPicker}
+
+\texttt{adf.component.centralized.CommandExecutor}
+
+\normalsize
+Teams are not allowed to change other classes, especially the Tactic classes. 
+It is the responsibility of the team to ensure that its code connects the
+correct number of agents to the server.
+
+Teams must implement their code in a package named after their team's name.
+
+\small
+\texttt{\$TEAM.extraction.ExtAction}
+
+\texttt{\$TEAM.algorithm.Clustering}
+
+\texttt{\$TEAM.algorithm.PathPlanning}
+
+\texttt{\$TEAM.complex.TargetDetector}
+
+\texttt{\$TEAM.complex.TargetAllocator}
+
+\texttt{\$TEAM.centralized.CommandPicker}
+
+\texttt{\$TEAM.centralized.CommandExecutor}
+
+\normalsize
+For instance, if the short name of the team is TEST, the team should provide a 
+package containing methods with
+
+\small
+\texttt{TEST.extraction.ExtAction}
+
+\texttt{TEST.algorithm.Clustering}
+
+\texttt{TEST.algorithm.PathPlanning}
+
+\texttt{TEST.complex.TargetDetector}
+
+\texttt{TEST.complex.TargetAllocator}
+
+\texttt{TEST.centralized.CommandPicker}
+
+\texttt{TEST.centralized.CommandExecutor}
+
+\normalsize
+Teams should provide a configuration file containing information of the classes 
+they have changed from the original ADF Framework and a mapping between classes,
+package path, and file in their code.
+%%
+\item[(h)] \textbf{Shared memory:} Agents cannot use any form of shared memory, 
+including static memory accessible to all agents, direct function calls between 
+agents, or writing files for use by other agents during the scenario simulation.
+The exception is the Pre-Computation phase when agents are allowed to write
+files (see item (i) for details). The Technical Committee may execute each agent
+of the team in a different virtual/physical machine if the team is suspected of
+violating this rule.
+%%
+\item[(i)] \textbf{Phases:} The scenario simulation may be performed in two
+phases of execution of the team's code: the Pre-Computation phase (item (j)) and
+the Simulation phase (item (k)). The Pre-Computation phase, however, is not
+mandatory for all scenarios and is assumed a configuration parameter of the
+scenario. Thus, the execution of the Pre-Computation phase will be defined as a
+configuration parameter of the scenario (see item (e)).
+%%
+\item[(j)] \textbf{Pre-Computation phase:} The Pre-Computation phase allows an 
+agent of each type to pre-process map-specific and scenario-specific data and 
+store them into a file to use during the Simulation phase. Only one agent of 
+each type can connect to the server and execute the Pre-Computation algorithm. 
+This phase is limited to 2 minutes and after the time is elapsed the server 
+will be terminated. Pre-Computation is allowed under the following conditions:
+%%
+\begin{itemize}
+%%
+\item[I.] The data must be generated by a computer program with no human 
+interaction or intervention.
+%%
+\item[II.] Data for all maps must be generated by a single computer program.
+%%
+\item[III.] The computer program should work for any new map.
+%%
+\item[IV.] Agent must choose the file to store the pre-computing data.
+%%
+\item[V.] Agents must be able to work if no Pre-Computation data is present for 
+the map.
+%%
+\item[VI.] The source-code of the Pre-Computation program must be released 
+after the competition.
+%%
+\end{itemize}
+%%
+\item[(k)] \textbf{Simulation phase:} The Simulation phase corresponds to the 
+actual team' simulation in the competition scenario. The team must connect in 
+at most 3 minutes all agents to the kernel in order to perform the scenario 
+simulation. The scenario simulation will begin no later than 3 minutes after 
+the first agent begins its handshake with the kernel. All file permissions, 
+except read permission for previously written files, will be removed.
+%%
+\item[(l)] \textbf{Valid map:} The Technical Committee is entitled to define 
+whether a map results is valid or invalid in a session. The decision is based 
+on the results of the map and it may be decided that a map is invalid when all 
+the teams scores very close in the map.
+%%
+\item[(m)] \textbf{Valid games:} Teams will NOT be entitled to rerun their 
+agent team in most circumstances. It is expected that teams implement their 
+agents so that they work correctly. In extreme circumstances teams may have the 
+right of a single rerun. Circumstances that may result in a rerun are:
+%%
+\begin{itemize}
+%%
+\item[I.] Power failure.
+%%
+\item[II.] Accidental or deliberate termination of a kernel, simulator, or agent
+process.
+%%
+\item[III.] Java Virtual machine crash.
+%%
+\end{itemize}
+%%
+In the case of rerun, the last score is used as the official score of the team 
+on that map.
+
+Examples of events that will NOT result in a rerun are:
+%%
+\begin{itemize}
+%%
+\item[I.] Simulator crash.
+%%
+\item[II.] Agents failing to fully connect before the simulation starts.
+%%
+\item[III.] Agents crashing or failing to act during the run.
+%%
+\item[IV.] Apparently incorrect behavior by a simulator or the viewer.
+%%
+\item[V.] Simulator or ADF bug.
+%%
+\end{itemize}
+%%
+
+Teams that wish to request a rerun must do so in writing. The request must 
+include the team's name, the scenario's name, the description of the problem,
+and the reasons why the team feels a rerun is appropriate. The request must also
+state whether the request is for a rerun of the team or a full session rerun.
+Only one Java Virtual Machine crash rerun request is accepted for each session.
+%%
+\item[(n)] \textbf{Bugs:} It is the responsibility of each team to ensure that 
+its code works correctly with the provided simulators. Although the Technical
+Committee makes every effort to provide a reliable simulation environment, the
+Technical Committee has no responsibility for any kind of software failure at
+competition time. Simulator and ADF Framework bugs are not sufficient grounds to
+request a rerun.
+%%
+\item[(o)] \textbf{Committee decisions:} If a problem arises during a session, 
+teams may ask for the session chair to resolve the problem. The session chair 
+may make a decision on the spot or may refer it to the committee. Chair 
+decisions are final, but if a team strongly disagrees, they may submit a 
+written appeal to the committee. In order to allow the competition to continue, 
+appeals will not be heard during a round, but will be discussed by the 
+committee at the end of each day. The Technical Committee will make final 
+decision at any condition.
+%%
+\item[(p)] \textbf{Comments from teams:} \textbf{Only the team leader} of 
+participating teams can comment and make suggestions to the Technical Committee 
+about the running of the competition. If these comments or suggestions are 
+deemed derogatory or abusive then the matter will be referred to the RoboCup 
+Trustees and may result in penalties for the team concerned. Penalties may 
+include points reduction or, in the worst case, disqualification. Only team 
+leaders are entitled to comment or make suggestions to the Technical Committee,
+other members comments and suggestions will be disregarded.
+%%
+\item[(q)] \textbf{Bugs exploitation:} A team that exploit known bugs in the 
+simulation package to gain advantage will be disqualified from the competition. 
+Disqualifications will be made only after consultation with the RoboCup 
+Trustees.
+%%
+\item[(r)] \textbf{Dispute resolution:} If there is an ambiguity in the rule or
+any unexpected situation happens, a temporary committee composed of the
+Technical, Organization and Executive Committee members and the local chair have
+the power to take a decision regarding the issue. The temporary committee
+decision has the same effect as a rule.
+%%
+\item[(s)] \textbf{Open source policy:} Source-code files must be released 
+open-source immediately after the end of the competition to guarantee fair play 
+and to encourage community activity after competition. Log files and related 
+parameter files will be open access.
+%%
+\item[(t)] \textbf{Team leader meetings:} Every day of the competition, there
+will be a team leader meeting before the beginning and after the end of the
+competition to discuss issues or provide information about the competition. All
+team leaders of the teams participating in that day's round shall participate in
+these meetings, if the team leader fails to participate his/her issues and
+opinion will be disregarded.
+%%
+\end{itemize}
+%%
+%%
+\subsection{Ranking}
+\label{subsec:ranking}
+%%
+Each round is composed of several sessions ($S$), and at each session the 
+participating teams receive an identification ranging from $t_{1}$ to $t_{n}$, 
+where $n$ represents the number of teams participating on that session. Each 
+session is comprised of a set of scenarios ($M$), and each scenario also 
+receives an identification ranging from $m_{1}$ to $m_{p}$, where $p$ 
+represents the number of scenarios in that session. A score $SC_{ji}^{k}$ is 
+assigned to each team $i \in T$ ($T = \{t_{1},\dots,t_{n}$\}) at each session $k 
+\in S$ ($S = \{s_{1},\dots,s_{n}$\}) for each scenario $j \in M$ ($M = 
+\{m_{1},\dots,m_{p}\}$). 
+
+For each session $k$ and scenario $j$, the Selective Minimum ($SM_{j}^{k}$) is 
+calculated as
+%%
+\begin{equation}
+SM_{j}^{k} = max\left(SC_{ji}^{k}\right) - \left( \left( max \left( SC_{ji}^{k} 
+\right) - mean \left( SC_{ji}^{k} \right)\right) \times 2 \right),
+\end{equation}
+%%
+
+and the Maximum Score ($MS_{j}^{k}$) is calculated as
+%%
+\begin{equation}
+MS_{j}^{k} = n \times SDC,
+\end{equation}
+%%
+\noindent where $n$ is the number of teams on session $k$, and $SDC$ is the 
+coefficient indicating the step between points among teams (we will use $SDC = 
+2$ in RoboCup Rescue 2018 competition).
+
+The maximum value of each step is calculated as
+%%
+\begin{equation}
+MSS_{j/step \in \{1,\dots,MS_{j}^{k}\}}^{k} = \frac{\left( \left( max \left( 
+SC_{j}^{k} \right) - SM_{j}^{k} \right) \right)}{\left( MS_{j}^{k} \times 
+\left( MS_{j}^{k} - step \right) \right)}
+\end{equation}
+%%
+
+To each team is assigned the step value, whose $MSS_{j/step}^{k}$ value is 
+lower than the team' score, but the $MSS_{j/step+1}^{k}$ value is greater than 
+the team' score.
+%%
+\begin{equation}
+TP_{ji}^{k} = step \therefore MSS_{j/step}^{k} < SC_{ji}^{k} < 
+MSS_{j/step+1}^{k}
+\end{equation}
+%%
+
+The final team points for each scenario and team are calculated as
+%%
+\begin{equation}
+FTP_{i}^{k} = \sum_{j=m_{1}}^{m_{p}}{TP_{ji}^{k}}
+\end{equation}
+%%
+
+The final team points is then used to generate a ranking of all the teams for 
+that session. The team with the highest mean points is ranked as first, the 
+second highest as second, and so on.
+%%
+\subsection{Hardware \& Software Configuration}
+%%
+In the competition venue, there will be several clusters with 4 computers each. 
+One PC per cluster will be reserved for the simulator components; the remaining 
+three will be available to run the agent teams. The hardware and software 
+configurations are
+%%
+\begin{itemize}
+%%
+\item[] \emph{Hardware:} Intel i7 CPU processor 3.0GHz or higher, and 8.0 GB or 
+higher RAM
+%%
+\item[] \emph{Operating System:} Linux Ubuntu 16.04 LTS (64bit) or higher.
+%%
+\item[] \emph{Java Virtual Machine:} Oracle Java SE 8 or higher.
+%%
+\item[] \emph{Simulation Packages:} The simulation package used in the 2018 
+RoboCup Rescue Simulation League competition will be available at
+\url{https://github.com/roborescue/rcrs-server}.
+%%
+\item[] \emph{Parameters:} Possible range of parameter values and accessible 
+parameters information are listed in Appendix~\ref{sec:parameters}.
+%%
+\item[] \emph{ADF:} The ADF framework is available at
+\url{https://github.com/roborescue/rcrs-adf-code} and a sample code is
+available at \url{https://github.com/roborescue/rcrs-adf-sample}.
+%%
+\end{itemize}
+%%
+%%
+\section{Technical Challenge Competition}
+\label{sec:technical}
+%%
+The 2018 Technical Challenge competition will explore the modularity of the 
+teams implementation using the ADF Framework. The Technical Challenge will 
+evaluate how easy it is to exchange the \texttt{TargetDetector} module for each 
+type of entity among teams' code. The participation to the 2018 Technical 
+Challenge will be compulsory. The teams do not need to send a separate Team 
+Description Paper (TDP) to participate in this competition.
+
+The Technical Challenge competition will be performed by exchanging the
+\texttt{TargetDetector} modules of the best three teams during the Preliminary
+round with all other teams. We will run each combination of teams'
+\texttt{TargetDetector} modules with the best three teams base code in some
+selected maps. The final score of the team on the specific map will be the worst
+score among the runs with the different base codes.
+
+The RoboCup Rescue Agent Simulation chairs will check the modularity of the 
+best three teams at the end of the Preliminary round using the Sample Agent. If
+the code is not modular, meaning that it depends on specific information not
+passed as reference, the team will be disqualified of the Agent Competition and
+the next best team in the Preliminary round will be evaluated.
+
+The RoboCup Rescue Agent Simulation Technical Committee is responsible to 
+select the scenario for the competition and all teams code are executed on the 
+same scenarios.
+%%
+\subsection{Rules}
+%%
+The Technical Challenges competition rules are the same of the Agent Simulation 
+competition unless redefined below.
+%%
+\begin{itemize}
+%%
+\item[(a)] \textbf{Rounds:} The competition is structured into one single round.
+%%
+\item[(b)] \textbf{Agents:} Teams shall implement all types of agents using the 
+ADF Framework. Teams can only implement their own code to replace or extend the 
+classes:
+
+\footnotesize
+\texttt{adf.component.extraction.ExtAction}
+
+\texttt{adf.component.module.algorithm.Clustering}
+
+\texttt{adf.component.module.algorithm.PathPlanning}
+
+\texttt{adf.component.module.complex.TargetAllocator}
+
+\texttt{adf.component.centralized.CommandPicker}
+
+\texttt{adf.component.centralized.CommandExecutor}
+
+\normalsize
+Teams are not allowed to change other classes, especially the Tactic classes. 
+It is the responsibility of the team to ensure that its code connects the 
+correct number of agents to the server. Teams must implement their code in a 
+package named after their team name.
+
+\small
+\texttt{\$TEAM.extraction.ExtAction}
+
+\texttt{\$TEAM.algorithm.Clustering}
+
+\texttt{\$TEAM.algorithm.PathPlanning}
+
+\texttt{\$TEAM.complex.TargetAllocator}
+
+\texttt{\$TEAM.centralized.CommandPicker}
+
+\texttt{\$TEAM.centralized.CommandExecutor}
+
+\normalsize
+For instance, if the short name of the team is TEST, the team should provide a 
+package containing methods with
+
+\small
+\texttt{TEST.extraction.ExtAction}
+
+\texttt{TEST.algorithm.Clustering}
+
+\texttt{TEST.algorithm.PathPlanning}
+
+\texttt{TEST.complex.TargetAllocator}
+
+\texttt{TEST.centralized.CommandPicker}
+
+\texttt{TEST.centralized.CommandExecutor}
+
+\normalsize
+Teams should be able to operate with other teams \texttt{TargetDetector} 
+modules. Teams should provide a configuration file containing information of 
+the classes they have changed from the original ADF Framework and a mapping 
+between classes, package path, and file in their code.
+%%
+\end{itemize}
+%%
+%%
+\subsection{Ranking}
+%%
+The competition is comprised of a set of scenarios ($M$). Each participating 
+team receives an identification $T$ ranging from $t_{1}$ to $t_{n}$, where $n$ 
+represents the number of teams participating on the competition. The best teams 
+that provide the modules to replace in all teams receives an identification $B$ 
+ranging from $b_{1}$ to $b_{x}$, where $x$ represents the number of teams which 
+all teams will use the \texttt{TargetDectector} modules from. Each scenario 
+also receives an identification ranging from $m_{1}$ to $m_{p}$, where $p$ 
+represents the number of scenarios. A score $SC_{ji}^{k}$ is assigned to each
+team $i \in T$ ($T = \{t_{1},\dots,t_{n}\}$) for each scenario $j \in M$ ($M = 
+\{m_{1},\dots,m_{p}\}$) and $k \in B$ ($B = \{b_{1},\dots,b_{x}\}$).
+
+The final team score is the mean among the worst scores in each scenario.
+%%
+\begin{equation}
+FTP_{i} = \frac{\sum_{j=1}^{p}{\min_{k \in B}(SC_{ji}^{k})}}{p}
+\end{equation}
+%%
+
+The final team scores are used to generate a ranking of all the teams. The team 
+with the highest final score is ranked as first, the second highest as second, 
+and so on.
+%%
+\subsection{Hardware \& Software Configuration}
+%%
+One PC will be used to run the simulator components and the agent teams. The 
+hardware and software configurations are
+%%
+\begin{itemize}
+%%
+\item[] \emph{Hardware:} Intel i7 CPU processor 3.0GHz or higher, and 8.0 GB or 
+higher RAM
+%%
+\item[] \emph{Operating System:} Linux Ubuntu 16.04 LTS (64bit) or higher.
+%%
+\item[] \emph{Java Virtual Machine:} Oracle Java SE 8 or higher.
+%%
+\item[] \emph{Simulation Packages:} The simulation package used in the 2018 
+RoboCup Rescue Simulation League competition will be available at
+\url{https://github.com/roborescue/rcrs-server}.
+%%
+\item[] \emph{Parameters:} Possible range of parameter values and accessible 
+parameters information are listed in Appendix~\ref{sec:parameters}.
+%%
+\item[] \emph{ADF:} The ADF framework is available at
+\url{https://github.com/roborescue/rcrs-adf-code} and a sample code is
+available at \url{https://github.com/roborescue/rcrs-adf-sample}.
+%%
+\end{itemize}
+%%
+%%
+\section{Infrastructure Competition}
+\label{sec:infrastructure}
+%%
+The Infrastructure competition involves the presentation of already existent 
+tools and simulators of disaster management problems in general. The intent is 
+the evaluation of possible enhancements and expansions of the basic RoboCup 
+Rescue Simulation League simulators (Agent Simulation and Virtual Robots) based
+on the new ideas and concepts proposed in these tools and simulators. The
+evaluation will be done in a panel and a winner chosen accordingly to a set of
+factors related to the technical aspects of the tool or simulator and the
+presentation. The best tool will be selected for further integration with the
+simulation platform.
+%%
+\subsection{Ranking}
+%%
+The score of each team participating in the Infrastructure Competition is given 
+by the sum of the punctuation given by each other team to a set of evaluative 
+factors related to the innovative aspect of the proposal and the presentation's 
+quality and clarity. The team with the highest sum of scores is the winner of 
+the competition. Each member of Technical Committee who is not a member of a 
+team may participate in the scoring. Each team should participate and evaluate 
+the infrastructure presentation.
+%%
+\subsection{Duty of Release}
+%%
+Teams participating in the Infrastructure competition must release their source 
+code as an open-source project before the competition. Even though a team is 
+accepted to participate in the competition, if it does not release the source 
+code, a complete manual, prepare an easy installation and running script files 
+(for example, install.sh and run.sh) before the beginning of the RoboCup 2018 
+(before June 17, 2018), will be disqualified. Thus, it will not be evaluated 
+and considered for winning the prize.
+%%
+\section{Committees}
+\label{sec:committees}
+%%
+The RoboCup Rescup Agent Competition is composed of three committees:
+Executive Committee (EC), Technical Committee (TC), and Organization Committee
+(OC). Each committee is composed of 2 members and each member can participate in
+the same committee for at most 2 terms. Each term lasts for 3 consecutive years
+beginning at the RoboCup competition of the (re-)election year.
+%%
+\subsection{Current Committee Members}
+%%
+\begin{table}[H]
+\begin{tabular}{lllll}
+  \toprule
+  \textbf{Role}   & \textbf{Name}         & \textbf{Country}  & \textbf{Term} &
+  \textbf{Period}\\
+    \midrule
+    EC            & Farshid Faraji        & Iran              & 1${^o}$ Term  &
+    2015--2018\\
+    \hline
+    EC            & Luis G. Nardin        & Germany           & 1${^o}$ Term  &
+    2017--2020\\
+    \hline
+    TC            & Sayed M. R. Modaresi  & Iran              & 1${^o}$ Term  &
+    2015--2018\\
+    \hline
+    TC            & Dina Helal            & Egypt             & 1${^o}$ Term  &
+    2017--2020\\
+    \hline
+    OC            & Kazunori Iwata        & Japan             & 1${^o}$ Term  &
+    2016--2019\\
+    \hline
+    OC            & Okan A{\c s}ik        & Turkey            & 1${^o}$ Term  &
+    2017-2020\\
+    \bottomrule
+\end{tabular}
+\end{table}
+%%
+%%
+\subsection{Selection Process, Duties and Dismissal Rules}
+%%
+\begin{itemize}
+  %%
+  \item \textbf{TC Selection} Selection to the TC will be held if there is a
+  vacant position at the TC and no OC member is interest in becoming TC member.
+  The OC member nomination to the TC has to be approved by the other committee
+  members. If both OC members are interested in becoming TC, the oldest OC
+  member is given priority. A TC position becomes vacant if the TC member
+  reaches the end of his/her $2^{nd}$ term, the member reaches the end of
+  his/her $1^{st}$ term and he/she does not want to continue as TC, or a TC
+  member is accepted to the Executive Committee.
+  %%
+  \item \textbf{OC Selection} Selection to the OC will be held if there is a
+  vacant position at the OC. An OC position becomes vacant if the OC member
+  reaches the end of his/her $2^{nd}$ term, the member reaches the end of
+  his/her $1^{st}$ term and he/she does not want to continue as OC, or the OC is
+  accepted to the Executive or Technical Committee.
+  %%
+  \item \textbf{Nominating TC/OC candidates} Because there is a need to avoid
+  concentration of TCs and OCs from the same region, we prioritize candidates
+  of regions depending on the region where the current committee members reside.
+  Currently, we prioritize candidates: $1^{st}$ North America, $2^{nd}$ Europe,
+  and $3^{rd}$ other regions. To avoid such concentration, nomination of
+  candidates from the same region of one current TC/OC member is not accepted.
+  It is very important the TC/OC candidate are involved in the league and has
+  experience on participating in RoboCup Rescue competitions.
+  %%
+  \item \textbf{Selection Process} The selection process will be announced on
+  the RoboCup competition venue in the year that there will be a vacant position
+  in the TC or OC. The nomination deadlines will be published on the board. The
+  selection will be done at the last official Team Leader meeting of the
+  competition.
+  %%
+  \item \textbf{Duties} The TC/OC committee members have the responsibility of
+  managing the league. Their specific tasks are
+  %%
+  \begin{itemize}
+    %%
+    \item Elaborate RoboCup Rescue league road-map
+    %%
+    \item Software improvement and maintenance
+    %%
+    \item Update the web content
+    %%
+    \item Update the rules of the competition
+    %%
+    \item Organize the Qualification process
+    %%
+    \item Negotiate with Local Organizing Committee
+    %%
+    \item Manage competition schedule
+    %%
+    \item Refereeing during the competition
+    %%
+  \end{itemize}
+  %%
+  \item \textbf{Commitment} If elected to the TC/OC role, the nominated
+  candidate shall commit to continue as member for at least 3 consecutive years.
+  It is accepted that TC/OC members leave their role before the end of the term
+  to assume another role in the RoboCup community, such as Executive or
+  Technical Committee member.
+  %%
+  \item \textbf{Dismissed} TC/OC members that do not show commitment to the
+  League and their responsibilities can be dismissed assuming that the majority
+  of the other EC, TC, and OC members agree with the dismissal.
+\end{itemize}
+%%
+%%
+\section*{Acknowledgments}
+%%
+We thanks all the former RoboCup Rescue Simulation League members of the 
+Technical, Organization, and Executive Committees for their effort in promoting 
+and organizing this competition. Special thanks to Nobuhiro Ito for his
+dedication to the RoboCup Rescue Simulation League.
+%%
+\newpage
+\appendix
+\section{Parameters}
+\label{sec:parameters}
+%%
+The following tables describe the set of parameters that can change during the
+competition. Note that agents will not be given all the available 
+parameters---see Table~\ref{tab:1} for the set of parameters that agents are 
+guaranteed to be able to query.
+%%
+\begin{table}[htb]
+\caption{Number of agents, refuges, and ignition points per scenario.}
+\label{tab:1}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Entity}         & \textbf{Min}  & \textbf{Max}\\
+  \hline
+  Fire brigade            & 0             & 50\\
+  Police force            & 0             & 50\\
+  Ambulance               & 0             & 50\\
+  \hline
+  Fire station            & 0             & 5\\
+  Police office           & 0             & 5\\
+  Ambulance centre        & 0             & 5\\
+  \hline
+  Civilians               & 0             & 1000\\
+  \hline
+  Refuges                 & 0             & Unlimited\\
+  Initial ignition points & 0             & 50\\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+The simulation parameters can vary between scenarios.
+Tables~\ref{tab:2}--~\ref{tab:13} list all variable parameters and their
+possible ranges.
+%%
+\begin{table}[htb]
+\caption{Ranges for simulation parameters common to all components.}
+\label{tab:2}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter} & \textbf{Description}              & \textbf{Range}\\
+  \hline
+  random.seed        & Seed for random number generator  & Any range\\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for kernel parameters.}
+\label{tab:3}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                        & \textbf{Description}             
+  & \textbf{Range}\\
+  \hline
+  kernel.timesteps                          & Number of simulation timesteps   
+  & 100---1000\\
+  \hline
+  \multirow{2}{*}{kernel.agents.think-time} & Number of milliseconds each agent
+  & \multirow{2}{*}{500---3000}\\
+                                            & has to send commands             
+                                            & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for general communication channels configuration parameters.}
+\label{tab:4}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}            & \multirow{2}{*}{\textbf{Description}} &
+  \multirow{2}{*}{\textbf{Range}}\\
+  \textbf{comms.channels.*}     &                                       & \\
+  \hline
+  count                         & Number of communication channels      &
+  1---20\\
+  \hline
+  \multirow{2}{*}{max.platoon}  & Number of channels a platoon          &
+  \multirow{2}{*}{0---10}\\
+                                & agent can subscribe to                & \\
+  \hline
+  \multirow{2}{*}{max.centre}   & Number of channels a centre           & 
+  \multirow{2}{*}{0---20}\\
+                                & agent can subscribe to                & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for voice channel parameters.}
+\label{tab:5}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                & \multirow{3}{*}{\textbf{Description}} &
+  \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{comms.channels.$<$x$>$.*} &                                       & \\
+  \textbf{$<$x$>$ = channel number} &                                       & \\
+  \hline
+  type                              & Type of the channel                   &
+  voice\\
+  \hline
+  \multirow{2}{*}{range}            & Maximum range of a message            & 
+  \multirow{2}{*}{0---300,000}\\
+                                    & in mm                                 & \\
+  \hline
+  \multirow{2}{*}{message.size}     & Maximum size of a voice               & 
+  \multirow{2}{*}{64---2,048}\\
+                                    & message in bytes                      & \\
+  \hline
+  \multirow{3}{*}{message.max}      & Maximum number of a voice             & 
+  \multirow{3}{*}{1---100}\\
+                                    & message an agent can send             & \\
+                                    & per timestep                          & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for radio channel parameters.}
+\label{tab:6}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                & \multirow{3}{*}{\textbf{Description}} &
+  \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{comms.channels.$<$x$>$.*} &                                       & \\
+  \textbf{$<$x$>$ = channel number} &                                       & \\
+  \hline
+  type                              & Type of the channel                   &
+  radio\\
+  \hline
+  \multirow{2}{*}{bandwidth}        & Maximum capacity of the               & 
+  \multirow{2}{*}{0---8,192}\\
+                                    & channel in bytes per timestep         & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for voice and radio channel parameters.\tablefootnote{Noise can
+be specified as input or output (or both). Input noise is applied as the agent
+sends a message to the server; output noise is applied as an agent receives a
+message. Thus, input noise is identical for all receivers but output noise is
+unique to each receiver. There are two types of noise: failure noise and dropout
+noise. Failure noise means a message disappears completely with no notification
+to either the sender or the receiver. Dropout noise removes the content of a
+message but the receiver still receives a zero-length communication from the
+sender, i.e., the sender knows a message was sent but the content is lost.}}
+\label{tab:7}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                                    &
+  \multirow{3}{*}{\textbf{Description}} & \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{comms.channels.$<$x$>$.*}                     &                      
+                                        & \\
+  \textbf{$<$x$>$ = channel number}                     &                      
+                                        & \\
+  \hline
+  type                                                  & Type of the channel  
+                                        & radio\\
+  \hline
+  \multirow{4}{*}{noise.[input $|$ output].failure.use} & Whether or not to use
+                                        & \multirow{4}{*}{yes or no}\\
+                                                        & failure noise on
+  channel                               & \\
+                                                        & $<$x$>$ in input or
+  output                                & \\
+                                                        & mode                 
+                                        & \\
+  \hline
+  \multirow{2}{*}{noise.[input $|$ output].failure.p}   & Probability of message
+                                        & \multirow{2}{*}{0---1}\\
+                                                        & failure              
+                                        & \\
+  \hline
+  \multirow{4}{*}{noise.[input $|$ output].dropout.use} & Whether or not to use
+                                        & \multirow{4}{*}{yes or no}\\
+                                                        & dropout noise on
+  channel                               & \\
+                                                        & $<$x$>$ in input or
+  output                                & \\
+                                                        & mode                 
+                                        & \\
+  \hline
+  \multirow{2}{*}{noise.[input $|$ output].dropout.p}   & Probability of message
+                                        & \multirow{2}{*}{0---1}\\
+                                                        & dropout              
+                                        & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for perception parameters.}
+\label{tab:8}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                            & \textbf{Description}      & 
+  \textbf{Range}\\
+  \hline
+  \multirow{3}{*}{perception.los.max-distance}  & Maximum distance an       & 
+  \multirow{3}{*}{30,000---150,000}\\
+                                                & agent can perceive world  & \\
+                                                & changes                   & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for perception parameters.}
+\label{tab:9}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                    & \textbf{Description}                 
+  & \textbf{Range}\\
+  \hline
+  \multirow{2}{*}{collapse.wood.*}      & Proportion of wooden buildings with  
+  & 0---1\\
+                                        & each degree of damage                
+  & Sum = 1\\
+  \hline
+  \multirow{2}{*}{collapse.steel.*}     & Proportion of steel buildings with   
+  & 0---1\\
+                                        & each degree of damage                
+  & Sum = 1\\
+  \hline
+  \multirow{2}{*}{collapse.concrete.*}  & Proportion of concrete buildings with
+  & 0---1\\
+                                        & each degree of damage                
+  & Sum = 1\\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for fire simulator parameters.}
+\label{tab:10}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                            & \textbf{Description}    & 
+  \textbf{Range}\\
+  \hline
+  fire.thank.maximum                            & Water tank capacity     & 
+  5,000---150,000\\
+  \hline
+  fire.thank.refill-rate                        & Water tank refill rate  & 
+  500---50,000\\
+  \hline
+  \multirow{3}{*}{fire.extinguish.max-power}    & Maximum amount of       & 
+  \multirow{3}{*}{500---150,000}\\
+                                                & water that can be used  & \\
+                                                & per timestep            & \\
+  \hline
+  \multirow{2}{*}{fire.extinguish.max-distance} & Maximal extinguish      & 
+  \multirow{2}{*}{10,000---150,000}\\
+                                                & distance                & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for misc simulator parameters.}
+\label{tab:11}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                                            &
+  \multirow{3}{*}{\textbf{Description}} & \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{misc.*}                                               &              
+                                        & \\
+  \textbf{$<$type$>$ = wood$|$steel$|$concrete}                 &              
+                                        & \\
+  \hline
+  \multirow{5}{*}{buriedness.$<$type$>$.severity.rate}          & Probability 
+  that an agent                         & \multirow{5}{*}{0---1}\\
+                                                                & in a collapse
+  building                              & \\
+                                                                & of type
+  $<$type$>$ with                       & \\
+                                                                & a degree of
+  collapse                              & \\
+                                                                & severity will
+   be buried                            & \\
+  \hline
+  \multirow{5}{*}{buriedness.$<$type$>$.severity.value}         & Initial 
+  buriedness value                      & \multirow{5}{*}{0---200}\\
+                                                                & for a buried
+  agent in a                            & \\
+                                                                & collapsed
+   building of type                     & \\
+                                                                & $<$type$>$
+  with a degree of                      & \\
+                                                                & collapse
+  severity                              & \\
+  \hline
+  \multirow{5}{*}{injury.collapse.$<$type$>$.severity.slight}   &  Probability
+  that an agent                         & \multirow{5}{*}{0---1}\\
+                                                                & inside a
+  collapsing building                   & \\
+                                                                & of type
+   $<$type$>$ with a                    & \\
+                                                                & degree of
+  collapse severity                     & \\
+                                                                & will receive a
+  slight injury                         & \\
+  \hline
+  \multirow{5}{*}{injury.collapse.$<$type$>$.severity.serious}  & Probability
+  that an agent                         & \multirow{5}{*}{0---1}\\
+                                                                & inside a
+  collapsing building                   & \\
+                                                                & of type
+   $<$type$>$ with a                    & \\
+                                                                & degree of
+  collapse severity                     & \\
+                                                                & will receive a
+  serious injury                        & \\
+  \hline
+  \multirow{5}{*}{injury.collapse.$<$type$>$.severity.critical} & Probability
+  that an agent                         & \multirow{5}{*}{0---1}\\
+                                                                & inside a
+  collapsing building                   & \\
+                                                                & of type
+  $<$type$>$ with a                     & \\
+                                                                & degree of
+  collapse severity                     & \\
+                                                                & will receive a
+  critical injury                       & \\
+  \hline
+  \multirow{3}{*}{injury.collapse.slight}                       & Amount of
+  damage that                           & \multirow{3}{*}{0---10,000}\\
+                                                                & a slight
+  injury due to                         & \\
+                                                                & collapse
+  causes                                & \\
+  \hline
+  \multirow{3}{*}{injury.collapse.serious}                      & Amount of
+  damage that                           & \multirow{3}{*}{0---10,000}\\
+                                                                & a serious
+  injury due to                         & \\
+                                                                & collapse
+  causes                                & \\
+  \hline
+  \multirow{3}{*}{injury.collapse.critical}                     & Amount of
+  damage that                           & \multirow{3}{*}{0---10,000}\\
+                                                                & a critical
+  injury due to                         & \\
+                                                                & collapse
+  causes & \\
+  \hline
+  \multirow{3}{*}{injury.collapse.multiplier.$<$type$>$}        & Damage
+  multiplier for an                     & \multirow{3}{*}{0---1}\\
+                                                                & agent of type
+  $<$type$>$ due                        & \\
+                                                                & to collapse  
+                                        & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for misc simulator parameters (continue).}
+\label{tab:12}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                                        &
+  \multirow{3}{*}{\textbf{Description}} & \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{misc.*}                                           &                  
+                                        & \\
+  \textbf{$<$type$>$ = wood$|$steel$|$concrete}             &                  
+                                        & \\
+  \hline
+  \multirow{5}{*}{injury.bury.$<$type$>$.severity.slight}   &  Probability that
+  an agent                              & \multirow{5}{*}{0---1}\\
+                                                            & buried inside a
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  slight injury                         & \\
+  \hline
+  \multirow{5}{*}{injury.bury.$<$type$>$.severity.serious}  & 
+  Probability that an agent             & \multirow{5}{*}{0---1}\\
+                                                            & buried inside a
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  serious injury                        & \\
+  \hline
+  \multirow{5}{*}{injury.bury.$<$type$>$.severity.critical} &  Probability that
+  an agent                              & \multirow{5}{*}{0---1}\\
+                                                            & buried inside a
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  critical injury                       & \\
+  \hline
+  \multirow{3}{*}{injury.bury.slight}                       & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a slight injury
+  due to                                & \\
+                                                            & buriedness causes 
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.bury.serious}                      & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a serious injury
+  due to                                & \\
+                                                            & buriedness causes 
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.bury.critical}                     & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a critical injury
+  due to                                & \\
+                                                            & buriedness causes 
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.bury.multiplier.$<$type$>$}        & Damage multiplier
+  for an                                & \multirow{3}{*}{0---1}\\
+                                                            & agent of type
+  $<$type$>$ due                        & \\
+                                                            & to buriedness    
+                                        & \\
+  \hline
+  \multirow{5}{*}{injury.fire.$<$type$>$.severity.slight}   &  Probability that
+  an agent                              & \multirow{5}{*}{0---1}\\
+                                                            & inside a burning
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  slight injury                         & \\
+  \hline
+  \multirow{5}{*}{injury.fire.$<$type$>$.severity.serious}  &  Probability that
+  an agent                              & \multirow{5}{*}{0---1}\\
+                                                            & inside a burning
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  serious injury                        & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for misc simulator parameters (continue).}
+\label{tab:13}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                                        &
+  \multirow{3}{*}{\textbf{Description}} & \multirow{3}{*}{\textbf{Range}}\\
+  \textbf{misc.*}                                           &                  
+                                        & \\
+  \textbf{$<$type$>$ = wood$|$steel$|$concrete}             &                  
+                                        & \\
+  \hline
+  \multirow{5}{*}{injury.fire.$<$type$>$.severity.critical} & Probability that
+  an agent                              & \multirow{5}{*}{0---1}\\
+                                                            & inside a burning
+  building                              & \\
+                                                            & of type $<$type$>$
+  with a                                & \\
+                                                            & degree of collapse
+  severity                              & \\
+                                                            & will receive a
+  critical injury                       & \\
+  \hline
+  \multirow{3}{*}{injury.fire.slight}                       & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a slight injury
+  due to                                & \\
+                                                            & fire causes      
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.fire.serious}                      & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a serious injury
+  due to                                & \\
+                                                            & fire causes      
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.fire.critical}                     & Amount of damage
+  that                                  & \multirow{3}{*}{0---10,000}\\
+                                                            & a critical injury
+  due to                                & \\
+                                                            & fire causes      
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.fire.multiplier.$<$type$>$}        &  Damage multiplier
+  for an                                & \multirow{3}{*}{0---1}\\
+                                                            & agent of type
+  $<$type$>$ due                        & \\
+                                                            & to fire          
+                                        & \\
+  \hline
+  \multirow{3}{*}{injury.$<$type$>$.k}                      & k parameter for
+  the damage                            & \multirow{3}{*}{0---1}\\
+                                                            & progression
+  function for                          & \\
+                                                            & injury type
+  $<$type$>$                            & \\
+                                                            & (collapse, bury,
+  fire)                                 & \\
+  \hline
+  \multirow{3}{*}{injury.$<$type$>$.l}                      & l parameter for
+  the damage                            & \multirow{3}{*}{0---1}\\
+                                                            & progression
+  function for                          & \\
+                                                            & injury type
+  $<$type$>$                            & \\
+                                                            & (collapse, bury,
+  fire)                                 & \\
+  \hline
+  \multirow{3}{*}{injury.$<$type$>$.noise.mean}             & Mean noise added
+  to the                                & \multirow{3}{*}{0---1}\\
+                                                            & damage progression
+  function                              & \\
+                                                            & for injury type
+  $<$type$>$                            & \\
+                                                            & (collapse, bury,
+  fire)                                 & \\
+  \hline
+  \multirow{3}{*}{injury.$<$type$>$.noise.sd}               & Standard deviation
+  of                                    & \multirow{3}{*}{0---1}\\
+                                                            & noise added to the
+  damage                                & \\
+                                                            & progression
+  function for                          & \\
+                                                            & injury type
+  $<$type$>$                            & \\
+                                                            & (collapse, bury,
+  fire)                                 & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for clear simulator parameters.}
+\label{tab:14}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                  & \textbf{Description}                  & 
+  \textbf{Range}\\
+  \hline
+  \multirow{2}{*}{clear.repair.rate}  & Rate of road clearing per police      & 
+  \multirow{2}{*}{0---50,000}\\
+                                      & force agent in square m per timestep  &
+  \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Ranges for ignition simulator parameters.}
+\label{tab:15}
+\centering
+\begin{tabular}{lll}
+  \hline
+  \textbf{Parameter}                      & \textbf{Description}            & 
+  \textbf{Range}\\
+  \hline
+  \multirow{3}{*}{ignition.random.lambda} & Parameter of the Poisson        & 
+  \multirow{3}{*}{0---1}\\
+                                          & distribution used to determine  & \\
+                                          & frequency of building ignition  & \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+
+%%
+\begin{table}[htb]
+\caption{Parameters agents are guaranteed to be able to query.}
+\label{tab:16}
+\centering
+\begin{tabular}{ll}
+  \hline
+  \textbf{Parameter}                    & \textbf{Description} \\
+  \hline
+  kernel.agents.think-time              & See Table~\ref{tab:3} \\
+  \hline
+  kernel.startup.connect-time           & See Section~\ref{sec:rules}---item
+  (j) \\
+  \hline
+  comms.channels.count                  & See Table~\ref{tab:4} \\
+  \hline
+  comms.channels.$<$x$>$.type           & See Table~\ref{tab:5} and 
+  Table~\ref{tab:6} \\
+  \hline
+  comms.channels.$<$x$>$.range          & \multirow{3}{*}{See 
+  Table~\ref{tab:5}} \\
+  comms.channels.$<$x$>$.messages.size  & \\
+  comms.channels.$<$x$>$.messages.max   & \\
+  \hline
+  comms.channels.$<$x$>$.bandwidth      & See Table~\ref{tab:6} \\
+  \hline
+  fire.tank.maximum                     & \multirow{4}{*}{See 
+  Table~\ref{tab:10}} \\
+  fire.tank.refill-rate                 & \\
+  fire.extinguish.max-power             & \\
+  fire.extinguish.max-distance          & \\
+  \hline
+  clear.repair.rate                     & See Table~\ref{tab:14} \\
+  \hline
+  scenario.agents.fb                    & Number of Fire Brigades \\
+  \hline
+  scenario.agents.fs                    & Number of Fire Stations \\
+  \hline
+  scenario.agents.pf                    & Number of Police Forces \\
+  \hline
+  scenario.agents.po                    & Number of Police Offices \\
+  \hline
+  scenario.agents.at                    & Number of Ambulance Teams \\
+  \hline
+  scenario.agents.ac                    & Number of Ambulance Centres \\
+  \hline
+  kernel.communication-model            & Communication model class name \\
+  \hline
+  kernel.perception                     & Perception model class name \\
+  \hline
+\end{tabular}
+\end{table}
+%%
+%%
+\end{document}
+%%

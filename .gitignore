@@ -1,0 +1,6 @@
+/tmp/
+*.pdf
+*.synctex.gz
+
+.project
+.texlipse
