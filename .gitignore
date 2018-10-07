@@ -4,3 +4,6 @@
 
 .project
 .texlipse
+/rcrs-rules.aux
+/rcrs-rules.log
+/rcrs-rules.out
