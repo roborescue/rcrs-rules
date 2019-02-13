@@ -1,9 +1,7 @@
-/tmp/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
 *.pdf
 *.synctex.gz
-
-.project
-.texlipse
-/rcrs-rules.aux
-/rcrs-rules.log
-/rcrs-rules.out
