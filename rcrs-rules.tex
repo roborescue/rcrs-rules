@@ -19,7 +19,7 @@
        2019 Competition Rules}
 \author{Luis G. Nardin, Sayed M. R. Modaresi, Dina Helal,\\
 Kazunori Iwata, Okan A{\c s}ik and Farshid Faraji}
-\date{Version 1.0}
+\date{Version 1.1}
 %%
 \maketitle
 %%
@@ -47,11 +47,11 @@ Natural disasters are major adverse events that cause large-scale economic, huma
 \end{itemize}
 %%
 
-\textcolor{blue}{Efficacious response plans are essential for reducing the negative impacts of natural disasters. Distributed coordination and planning are crucial for conducting the search and rescue tasks during this phase due to the usually non-existence of a centralized coordinator, involvement of multiple and heterogeneous entities, and lack of communication infrastructure.}
+Efficacious response plans are essential for reducing the negative impacts of natural disasters. Distributed coordination and planning are crucial for conducting the search and rescue tasks during this phase due to the usually non-existence of a centralized coordinator, involvement of multiple and heterogeneous entities, and lack of communication infrastructure.
 
-\textcolor{blue}{Currently these hazardous tasks are performed by humans. However, the RoboCup Rescue Leagues aim to promote the use of artificial entities in performing these tasks.}
+Currently these hazardous tasks are performed by humans. However, the RoboCup Rescue Leagues aim to promote the use of artificial entities in performing these tasks.
 
-\textcolor{blue}{In particular, the RoboCup Rescue Agent Simulation League mission is to promote research and development in this socially significant domain at various levels. First, the league aims to promote the development of new computational artifacts that may improve the distributed coordination and planning among these heterogenous artificial entities when performing search and rescue tasks on disaster scenarios. Second, it aims to provide a simulation software able to realistically represent natural disaster scenarios where these computational artifacts can be assessed. Finally, it aims to promote these research and development activities by conducting competitions to stimulate the exchange of ideas and experience among practitioners.}
+In particular, the RoboCup Rescue Agent Simulation League mission is to promote research and development in this socially significant domain at various levels. First, the league aims to promote the development of new computational artifacts that may improve the distributed coordination and planning among these heterogenous artificial entities when performing search and rescue tasks on disaster scenarios. Second, it aims to provide a simulation software able to realistically represent natural disaster scenarios where these computational artifacts can be assessed. Finally, it aims to promote these research and development activities by conducting competitions to stimulate the exchange of ideas and experience among practitioners.
 
 The RoboCup Rescue Agent Simulation competition held during the RoboCup is
 focused mostly on the third objective. The competition is sub-divided in the
@@ -79,38 +79,6 @@ At the end of each round, a set of teams with the highest sum of scores consider
 
 The RoboCup Rescue Agent Simulation Technical Committee is responsible to elaborate the set of scenarios for the competition and all teams code are executed on the same set of scenarios.
 %%
-\subsection{Presentation}
-\label{sec:presentation}
-%%
-The presentation aims to share the knowledge of the teams and improve the academic research aspects of the league. Each team will have $20$ minutes to present their implementation and another $10$ minutes for questions and answers. A presentation template is available at \url{https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx}.
-
-The presentation will be evaluated by a panel of experts and the leader of the other teams. The final evaluation of the presentation will be incorporated into the score of the preliminary, semi-final and final rounds. The presentations will be evaluated according to a set of criteria:
-%%
-\begin{itemize}
-%%
-\item \emph{Relevance} (5 points) Evaluates how relevant is the team's approach to the goals of the RoboCup Rescue. 0 means it is not relevant and 5 means it is very relevant.
-%%
-\item \emph{Originality} (5 points) Evaluates how original is the proposed team's approach to RoboCup Rescue. 0 means it is not original and 5 means it is very original.
-%%
-\item \emph{Significance} (5 points) Evaluates how significant to the league is the proposed team's approach. 0 means it is not significant and 5 means it is very significant.
-%%
-\item \emph{Slide Content} (5 points) Evaluates the quality and completeness of the presentation material with respect to the team' strategy and the readability. 0 means that the presentation slides are of poor quality with respect to the content and 5 means that it is very informative and complete.
-%%
-\item \emph{Slide Structure} (5 points) Evaluates the structure of the presentation material. 0 means that the presentation slides are poorly structured and 5 means that it is very well structured.
-%%
-\item \emph{Talk} (5 points) Evaluates how much clear and easy to follow was the presentation and explanation, and whether the presenter had a positive attitude or not with respect to the presentation and the raised questions. 0 means the presentation is not clear or the presenter had a bad attitude and 5 means the presentation is clear and the presenter had good attitude.
-%%
-\end{itemize}
-%%
-
-Each team's presentation score will be calculated taking into account the sum of points given by the other teams excluding the X best and the X worst scores, where X is defined based on the number of competing teams during the first team leader's meeting, plus the points given by the 2 Committee members who are not member of any team participating on the RoboCup Rescue Simulation Agent Competition.
-
-The score of each team will then be included in the ranking calculation in Section~\ref{subsec:ranking} as a scenario in all rounds that the team participates.
-
-All teams will have the same number of evaluations and the same evaluators. In case some evaluator is not able to participate in the evaluation of all teams' presentation, his/her evaluation will be disregarded.
-
-Team leaders or a representative assigned by the team leader must be present at all other teams presentation. The presentation session chair will check if the representative of each team is present at the beginning of each presentation, if there is no representative present the team's presentation score will be set to 0 (zero) and all the scores assigned by that team will be disregarded.
-%%
 \subsection{Rules}
 \label{sec:rules}
 %%
@@ -131,69 +99,107 @@ Team leaders or a representative assigned by the team leader must be present at 
 %%
 \item \textbf{Agents:} Teams shall implement all types of agents using the ADF Framework. Teams can only implement their own code to replace or extend the classes:
 
-\footnotesize
+\small
+\texttt{adf.component.centralized.CommandExecutor}
+
+\texttt{adf.component.centralized.CommandPicker}
+
+\texttt{adf.component.communication.ChannelSubscriber}
+
+\texttt{adf.component.communication.MessageCoordinator}
+
 \texttt{adf.component.extraction.ExtAction}
 
 \texttt{adf.component.module.algorithm.Clustering}
 
 \texttt{adf.component.module.algorithm.PathPlanning}
 
-\texttt{adf.component.module.complex.TargetDetector}
-
 \texttt{adf.component.module.complex.TargetAllocator}
 
-\texttt{adf.component.centralized.CommandPicker}
-
-\texttt{adf.component.centralized.CommandExecutor}
+\texttt{adf.component.module.complex.TargetDetector}
 
 \normalsize
-Teams are not allowed to change other classes, especially the Tactic classes. It is the responsibility of the team to ensure that its code connects the correct number of agents to the server.
+Teams are not allowed to change other classes, especially the Tactic classes. \textcolor{blue}{Teams should report any improvement suggestion or bugs in these classes prior to the competition} (see item~\ref{item:bug_exploitation} for comments on Bug Exploitation). It is the responsibility of the team to ensure that its code connects the correct number of agents to the server. It is the responsibility of the team to ensure that its code connects the correct number of agents to the server.
 
-Teams must implement their code in a package named after their team's name.
+Teams must implement their code in a package named after their team's name and competition year.
 
 \small
-\texttt{\$TEAM.extraction.ExtAction}
+\texttt{\$TEAM\_YEAR.centralized.CommandExecutor}
 
-\texttt{\$TEAM.algorithm.Clustering}
+\texttt{\$TEAM\_YEAR.centralized.CommandPicker}
 
-\texttt{\$TEAM.algorithm.PathPlanning}
+\texttt{\$TEAM\_YEAR.communication.ChannelSubscriber}
 
-\texttt{\$TEAM.complex.TargetDetector}
+\texttt{\$TEAM\_YEAR.communication.MessageCoordinator}
 
-\texttt{\$TEAM.complex.TargetAllocator}
+\texttt{\$TEAM\_YEAR.extraction.ExtAction}
 
-\texttt{\$TEAM.centralized.CommandPicker}
+\texttt{\$TEAM\_YEAR.algorithm.Clustering}
 
-\texttt{\$TEAM.centralized.CommandExecutor}
+\texttt{\$TEAM\_YEAR.algorithm.PathPlanning}
+
+\texttt{\$TEAM\_YEAR.complex.TargetAllocator}
+
+\texttt{\$TEAM\_YEAR.complex.TargetDetector}
 
 \normalsize
 For instance, if the short name of the team is TEST, the team should provide a package containing methods with
 
 \small
-\texttt{TEST.extraction.ExtAction}
+\texttt{TEST\_2019.centralized.CommandExecutor}
 
-\texttt{TEST.algorithm.Clustering}
+\texttt{TEST\_2019.centralized.CommandPicker}
 
-\texttt{TEST.algorithm.PathPlanning}
+\texttt{TEST\_2019.communication.ChannelSubscriber}
 
-\texttt{TEST.complex.TargetDetector}
+\texttt{TEST\_2019.communication.MessageCoordinator}
 
-\texttt{TEST.complex.TargetAllocator}
+\texttt{TEST\_2019.extraction.ExtAction}
 
-\texttt{TEST.centralized.CommandPicker}
+\texttt{TEST\_2019.algorithm.Clustering}
 
-\texttt{TEST.centralized.CommandExecutor}
+\texttt{TEST\_2019.algorithm.PathPlanning}
+
+\texttt{TEST\_2019.complex.TargetAllocator}
+
+\texttt{TEST\_2019.complex.TargetDetector}
 
 \normalsize
-Teams should provide a configuration file containing information of the classes they have changed from the original ADF Framework and a mapping between classes, package path, and file in their code.
+\textcolor{blue}{If the team used a class or module from another team without any change, the package name must not be changed.}
+
+Teams should provide a configuration file containing information of the classes they have changed from the original ADF Framework and a mapping between classes, package path, and file in their code. \label{item:agents}
 %%
-\item \textbf{Code reuse:} \textcolor{blue}{The reuse of code from other teams of previous years is encouraged. However, teams are not allowed to have more than 50\% of their teams' implementation as reused code from other teams. In addition, teams have to explicitly state which modules and parts of their code were reused in the sake of transparency. The Organizing or Technical Committee members will check the similarity of teams' implementation using Moss (for a Measure Of Software Similarity) available at} \url{https://theory.stanford.edu/~aiken/moss/}.
+\item \textbf{Modularity:} \textcolor{blue}{Teams are forbidden to cast or make internal dependency between the classes listed in item~\ref{item:agents}. It is mandatory that these classes are usable independent of each other.}
+%%
+\item \textbf{Code reuse:} \textcolor{blue}{The reuse of code of other teams from previous years is encouraged. However,}
+
+\begin{enumerate}[I.]
+  \item \textcolor{blue}{teams are not allowed to have more than 50\% of their overall teams' implementation as reused code from other teams}
+  %%
+  \item \textcolor{blue}{teams are not allowed to have more than 50\% of other team's implementation for classes}
+
+    \small
+    \texttt{adf.component.module.complex.TargetDetector}
+
+    \texttt{adf.component.module.complex.TargetAllocator}
+
+    \texttt{adf.component.centralized.CommandPicker}
+
+    \texttt{adf.component.centralized.CommandExecutor}
+  %%
+  \item \textcolor{blue}{teams have to explicitly report in a README file which modules or parts of their code were reused for the sake of transparency. This information must be in the source-code and shared with the Organizing and Technical Committee members before the first day of competitions}
+\end{enumerate}
+%%
+
+\textcolor{blue}{The Organizing or Technical Committee members will check the teams' implementation with other teams' code from previous years to determine if the team complies with this rule. If the team does not comply, the team will be disqualified from the competition.}
+%%
+\item \textbf{Plagiarism:} \textcolor{blue}{If a team commits plagiarism, the team and its members will be banned participating on the current and next year's RoboCup Rescue Simulation competitions. The term plagiarism comprises any use of external knowledge without proper referencing, i.e., copying or using thoughts, ideas, texts or language in general and presenting them as their own. This applies for Team Description Papers as well as team code. All kinds of licenses and copyright have to be respected. This applies to the qualification process and the RoboCup Rescue tournaments. Please be aware that when a team is found guilty of committing plagiarism it is disqualified and banned at any time. This may also be in the middle of the tournament.}
 %%
 \item \textbf{Shared memory:} Agents cannot use any form of shared memory, including static memory accessible to all agents, direct function calls between agents, or writing files for use by other agents during the scenario simulation. The exception is the Pre-Computation phase when agents are allowed to write files (see item~\ref{item:phases} for details). The Organizing or Technical Committee may execute each agent of the team in a different virtual/physical machine if the team is suspected of violating this rule.
 %%
 \item \textbf{Phases:} The scenario simulation may be performed in two phases of execution of the team's code: the Pre-Computation phase (item~\ref{item:precompphase}) and the Simulation phase (item~\ref{item:simphase}). The Pre-Computation phase, however, is not mandatory for all scenarios and is assumed a configuration parameter of the scenario. Thus, the execution of the Pre-Computation phase will be defined as a configuration parameter of the scenario (see item~\ref{item:scenarios}). \label{item:phases}
 %%
-\item \textbf{Pre-Computation phase:} The Pre-Computation phase allows an agent of each type to pre-process map-specific and scenario-specific data and store them into a file to use during the Simulation phase. Only one agent of each type can connect to the server and execute the Pre-Computation algorithm. This phase is limited to 2 minutes and after the time is elapsed the server will be terminated. Pre-Computation is allowed under the following conditions: \label{item:precompphase}
+\item \textbf{Pre-computation phase:} The Pre-Computation phase allows an agent of each type to pre-process map-specific and scenario-specific data and store them into a file to use during the Simulation phase. Only one agent of each type can connect to the server and execute the Pre-Computation algorithm. This phase is limited to 2 minutes and after the time is elapsed the server will be terminated. Pre-Computation is allowed under the following conditions: \label{item:precompphase}
 %%
 \begin{enumerate}[I.]
 %%
@@ -251,20 +257,52 @@ Teams that wish to request a rerun must do so in writing. The request must inclu
 %%
 \item \textbf{Bugs:} It is the responsibility of each team to ensure that its code works correctly with the provided simulators. Although the Organizing or Technical Committee makes every effort to provide a reliable simulation environment, the Organizing or Technical Committee has no responsibility for any kind of software failure at competition time. Simulator and ADF Framework bugs are not sufficient grounds to request a rerun.
 %%
-\item \textbf{Committee decisions:} If a problem arises during a session, teams may ask for the session chair to resolve the problem. The session chair may make a decision on the spot or may refer it to the committee. Chair decisions are final, but if a team strongly disagrees, they may submit a written appeal to the committee. In order to allow the competition to continue, appeals will not be heard during a round, but will be discussed by the committee at the end of each day. The Organizing or Technical Committee will make final decision at any condition.
+\item \textbf{Bugs exploitation:} A team that exploit known bugs in the simulation package to gain advantage will be disqualified from the competition. Disqualifications will be made only after consultation with the RoboCup Trustees. \label{item:bug_exploitation}
 %%
-\item \textbf{Comments from teams:} \textbf{Only the team leader} of participating teams can comment and make suggestions to the Organizing or Technical Committee about the running of the competition. If these comments or suggestions are deemed derogatory or abusive then the matter will be referred to the RoboCup Trustees and may result in penalties for the team concerned. Penalties may include points reduction or, in the worst case, disqualification. Only team leaders are entitled to comment or make suggestions to the Organizing or Technical Committee, other members comments and suggestions will be disregarded.
+\item \textbf{Team leader meetings:} \textcolor{blue}{Every day of the competition, there will be a team leader meeting before the beginning and after the end of the competition round to discuss issues or provide information about the competition. All team leaders of the teams participating in that day's round shall participate in these meetings, if the team leader fails to participate his/her issues and opinion will be disregarded.}
 %%
-\item \textbf{Bugs exploitation:} A team that exploit known bugs in the simulation package to gain advantage will be disqualified from the competition. Disqualifications will be made only after consultation with the RoboCup Trustees.
+\item \textbf{Complains/Comments/Suggestions from teams:} \textbf{Only the team leader} \textcolor{blue}{of participating teams can complain, comment or make suggestions in writing to the Organizing or Technical Committee about the competition. Comments and suggestions of other team members will be disregarded. If these complains, comments or suggestions are deemed derogatory or abusive then the matter will be referred to the RoboCup Trustees and may result in penalties for the team concerned. Penalties may include points reduction or, in the worst case, disqualification.}
 %%
-\item \textbf{Dispute resolution:} If there is an ambiguity in the rule or any unexpected situation happens, a temporary committee composed of the Technical, Organizing and Executive Committee members and the local chair have the power to take a decision regarding the issue. The temporary committee decision has the same effect as a rule.
+\item \textbf{Problem resolution:} \textcolor{blue}{If a problem arises during a session,} \textbf{team leaders} \textcolor{blue}{may make a detailed written request for the session chair to resolve the problem. The session chair may make a decision on the spot or may refer it to the committee. Chair decisions are final, but if a team strongly disagrees, they may submit a written appeal to the committee. In order to allow the competition to continue, appeals will not be received during a round, but will be discussed by the committee at the end of each day. The Organizing or Technical Committee will make final decision at any condition.}
+%%
+\item \textbf{Rule dispute resolution:} \textcolor{blue}{If there is an ambiguity in the rule or any unexpected situation happens, a temporary committee composed of the Technical, Organizing and Executive Committee members and the local chair have the power to take a decision regarding the issue. The temporary committee decision has the same effect as a rule.}
 %%
 \item \textbf{Open source policy:} Source-code files must be released open-source immediately after the end of the competition to guarantee fair play and to encourage community activity after competition. Log files and related parameter files will be open access.
 %%
-\item \textbf{Team leader meetings:} Every day of the competition, there will be a team leader meeting before the beginning and after the end of the competition to discuss issues or provide information about the competition. All team leaders of the teams participating in that day's round shall participate in these meetings, if the team leader fails to participate his/her issues and opinion will be disregarded.
-%%
 \end{enumerate}
 %%
+%%
+\subsection{Presentation}
+\label{sec:presentation}
+%%
+The presentation aims to share the knowledge of the teams and improve the academic research aspects of the league. Each team will have $20$ minutes to present their implementation and another $10$ minutes for questions and answers. A presentation template is available at \url{https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx}.
+
+The presentation will be evaluated by a panel of experts and the leader of the other teams. The final evaluation of the presentation will be incorporated into the score of the preliminary, semi-final and final rounds. The presentations will be evaluated according to a set of criteria:
+%%
+\begin{itemize}
+%%
+\item \emph{Relevance} (5 points) Evaluates how relevant is the team's approach to the goals of the RoboCup Rescue. 0 means it is not relevant and 5 means it is very relevant.
+%%
+\item \emph{Originality} (5 points) Evaluates how original is the proposed team's approach to RoboCup Rescue. 0 means it is not original and 5 means it is very original.
+%%
+\item \emph{Significance} (5 points) Evaluates how significant to the league is the proposed team's approach. 0 means it is not significant and 5 means it is very significant.
+%%
+\item \emph{Slide Content} (5 points) Evaluates the quality and completeness of the presentation material with respect to the team' strategy and the readability. 0 means that the presentation slides are of poor quality with respect to the content and 5 means that it is very informative and complete.
+%%
+\item \emph{Slide Structure} (5 points) Evaluates the structure of the presentation material. 0 means that the presentation slides are poorly structured and 5 means that it is very well structured.
+%%
+\item \emph{Talk} (5 points) Evaluates how much clear and easy to follow was the presentation and explanation, and whether the presenter had a positive attitude or not with respect to the presentation and the raised questions. 0 means the presentation is not clear or the presenter had a bad attitude and 5 means the presentation is clear and the presenter had good attitude.
+%%
+\end{itemize}
+%%
+
+Each team's presentation score will be calculated taking into account the sum of points given by the other teams excluding the X best and the X worst scores, where X is defined based on the number of competing teams during the first team leader's meeting, plus the points given by the 2 Committee members who are not member of any team participating on the RoboCup Rescue Simulation Agent Competition.
+
+The score of each team will then be included in the ranking calculation in Section~\ref{subsec:ranking} as a scenario in all rounds that the team participates.
+
+All teams will have the same number of evaluations and the same evaluators. In case some evaluator is not able to participate in the evaluation of all teams' presentation, his/her evaluation will be disregarded.
+
+Team leaders or a representative assigned by the team leader must be present at all other teams presentation. The presentation session chair will check if the representative of each team is present at the beginning of each presentation, if there is no representative present the team's presentation score will be set to 0 (zero) and all the scores assigned by that team will be disregarded.
 %%
 \subsection{Ranking}
 \label{subsec:ranking}
@@ -284,7 +322,7 @@ and the Maximum Score ($MS_{j}^{k}$) is calculated as
 MS_{j}^{k} = n \times SDC,
 \end{equation}
 %%
-\noindent where $n$ is the number of teams on session $k$, and $SDC$ is the coefficient indicating the step between points among teams (we will use $SDC = 2$ in RoboCup Rescue 2018 competition).
+\noindent where $n$ is the number of teams on session $k$, and $SDC$ is the coefficient indicating the step between points among teams (we will use $SDC = 2$ in RoboCup Rescue 2019 competition).
 
 The maximum value of each step is calculated as
 %%
@@ -321,7 +359,7 @@ In the competition venue, there will be several clusters with 4 computers each. 
 %%
 \item \emph{Java Virtual Machine:} OpenJDK Java 8 or higher.
 %%
-\item \emph{Simulation Packages:} The simulation package used in the 2018 RoboCup Rescue Simulation League competition will be available at \url{https://github.com/roborescue/rcrs-server}.
+\item \emph{Simulation Packages:} The simulation package used in the 2019 RoboCup Rescue Simulation League competition will be available at \url{https://github.com/roborescue/rcrs-server}.
 %%
 \item \emph{Parameters:} Possible range of parameter values and accessible parameters information are listed in Appendix~\ref{sec:parameters}.
 %%
@@ -343,68 +381,20 @@ The RoboCup Rescue Agent Simulation Organizing or Technical Committee is respons
 %%
 \subsection{Rules}
 %%
-The Technical Challenges competition rules are the same of the Agent Simulation competition unless redefined below.
+The Technical Challenges competition rules and the hardware configuration are the same of the Agent Simulation competition unless redefined below.
 %%
 \begin{enumerate}[(a)]
 %%
 \item \textbf{Rounds:} The competition is structured into one single round.
 %%
-\item \textbf{Agents:} Teams shall implement all types of agents using the ADF Framework. Teams can only implement their own code to replace or extend the classes:
-
-\footnotesize
-\texttt{adf.component.extraction.ExtAction}
-
-\texttt{adf.component.module.algorithm.Clustering}
-
-\texttt{adf.component.module.algorithm.PathPlanning}
-
-\texttt{adf.component.module.complex.TargetAllocator}
-
-\texttt{adf.component.centralized.CommandPicker}
-
-\texttt{adf.component.centralized.CommandExecutor}
-
-\normalsize
-Teams are not allowed to change other classes, especially the Tactic classes. It is the responsibility of the team to ensure that its code connects the correct number of agents to the server. Teams must implement their code in a package named after their team name.
-
-\small
-\texttt{\$TEAM.extraction.ExtAction}
-
-\texttt{\$TEAM.algorithm.Clustering}
-
-\texttt{\$TEAM.algorithm.PathPlanning}
-
-\texttt{\$TEAM.complex.TargetAllocator}
-
-\texttt{\$TEAM.centralized.CommandPicker}
-
-\texttt{\$TEAM.centralized.CommandExecutor}
-
-\normalsize
-For instance, if the short name of the team is TEST, the team should provide a package containing methods with
-
-\small
-\texttt{TEST.extraction.ExtAction}
-
-\texttt{TEST.algorithm.Clustering}
-
-\texttt{TEST.algorithm.PathPlanning}
-
-\texttt{TEST.complex.TargetAllocator}
-
-\texttt{TEST.centralized.CommandPicker}
-
-\texttt{TEST.centralized.CommandExecutor}
-
-\normalsize
-Teams should be able to operate with other teams \texttt{TargetDetector} modules. Teams should provide a configuration file containing information of the classes they have changed from the original ADF Framework and a mapping between classes, package path, and file in their code.
+\item \textbf{Number of base teams:} \textcolor{blue}{The number of best teams will be defined in the first day of competitions as this number depends on the number of participating teams.}
 %%
 \end{enumerate}
 %%
 %%
 \subsection{Ranking}
 %%
-The competition is comprised of a set of scenarios ($M$). Each participating team receives an identification $T$ ranging from $t_{1}$ to $t_{n}$, where $n$ represents the number of teams participating on the competition. The best teams that provide the modules to replace in all teams receives an identification $B$ ranging from $b_{1}$ to $b_{x}$, where $x$ represents the number of teams which all teams will use the \texttt{TargetDectector} modules from. Each scenario also receives an identification ranging from $m_{1}$ to $m_{p}$, where $p$ represents the number of scenarios. A score $SC_{ji}^{k}$ is assigned to each team $i \in T$ ($T = \{t_{1},\dots,t_{n}\}$) for each scenario $j \in M$ ($M = \{m_{1},\dots,m_{p}\}$) and $k \in B$ ($B = \{b_{1},\dots,b_{x}\}$).
+The competition is comprised of a set of scenarios ($M$). Each participating team receives an identification $T$ ranging from $t_{1}$ to $t_{n}$, where $n$ represents the number of teams participating on the competition. The best teams that provide the modules to replace in all teams receives an identification $B$ ranging from $b_{1}$ to $b_{x}$, where $x$ represents the number of teams which all other teams will use the modules from. Each scenario also receives an identification ranging from $m_{1}$ to $m_{p}$, where $p$ represents the number of scenarios. A score $SC_{ji}^{k}$ is assigned to each team $i \in T$ ($T = \{t_{1},\dots,t_{n}\}$) for each scenario $j \in M$ ($M = \{m_{1},\dots,m_{p}\}$) and $k \in B$ ($B = \{b_{1},\dots,b_{x}\}$).
 
 The final team score is the mean among the worst scores in each scenario.
 %%
@@ -414,27 +404,6 @@ FTP_{i} = \frac{\sum_{j=1}^{p}{\min_{k \in B}(SC_{ji}^{k})}}{p}
 %%
 
 The final team scores are used to generate a ranking of all the teams. The team with the highest final score is ranked as first, the second highest as second, and so on.
-%%
-\subsection{Hardware \& Software Configuration}
-%%
-One PC will be used to run the simulator components and the agent teams. The hardware and software configurations are
-%%
-\begin{enumerate}[ ]
-%%
-\item \emph{Hardware:} Intel i7 CPU processor 3.0GHz or higher, and 8.0 GB or higher RAM
-%%
-\item \emph{Operating System:} Linux Ubuntu 16.04 LTS (64bit) or higher.
-%%
-\item \emph{Java Virtual Machine:} OpenJDK Java 8 or higher.
-%%
-\item \emph{Simulation Packages:} The simulation package used in the 2018 RoboCup Rescue Simulation League competition will be available at \url{https://github.com/roborescue/rcrs-server}.
-%%
-\item \emph{Parameters:} Possible range of parameter values and accessible parameters information are listed in Appendix~\ref{sec:parameters}.
-%%
-\item \emph{ADF:} The ADF framework is available at \url{https://github.com/roborescue/rcrs-adf-code} and a sample code is available at \url{https://github.com/roborescue/rcrs-adf-sample}.
-%%
-\end{enumerate}
-%%
 %%
 \section{Infrastructure Competition}
 \label{sec:infrastructure}
@@ -447,12 +416,12 @@ The score of each team participating in the Infrastructure Competition is given 
 %%
 \subsection{Duty of Release}
 %%
-Teams participating in the Infrastructure competition must release their source code as an open-source project before the competition. Even though a team is accepted to participate in the competition, if it does not release the source code, a complete manual, prepare an easy installation and running script files (for example, install.sh and run.sh) before the beginning of the RoboCup 2018 (before July 2, 2019), will be disqualified. Thus, it will not be evaluated and considered for winning the prize.
+Teams participating in the Infrastructure competition must release their source code as an open-source project before the competition. Even though a team is accepted to participate in the competition, if it does not release the source code, a complete manual, prepare an easy installation and running script files (for example, install.sh and run.sh) before the beginning of the RoboCup 2019 (before July 2, 2019), will be disqualified. Thus, it will not be evaluated and considered for winning the prize.
 %%
 \section{Committees}
 \label{sec:committees}
 %%
-\textcolor{blue}{The RoboCup Rescue Agent Competition is composed of three committees: Executive Committee (EC), Technical Committee (TC), and Organizing Committee (OC). Each committee is composed of 2 members and each member can participate in the same committee for at most 2 terms. Each term lasts for 2 consecutive years beginning at the RoboCup competition of the (re-)election year.}
+\textcolor{blue}{The RoboCup Rescue Agent Competition is composed of three committees: Executive Committee (EC), Technical Committee (TC), and Organizing Committee (OC). Each committee is composed of 2 members and each member can participate in the same committee for at most 2 terms. Each term lasts for 3 consecutive years beginning at the RoboCup competition of the (re-)election year.}
 %%
 \subsection{Current Committee Members}
 %%
@@ -463,22 +432,22 @@ Teams participating in the Infrastructure competition must release their source 
   \textbf{Period}\\
     \midrule
     EC            & Farshid Faraji        & Iran              & 2${^o}$ Term  &
-    \textcolor{blue}{2018--2020}\\
+    2018--2021\\
     \hline
     EC            & Luis G. Nardin        & Germany           & 1${^o}$ Term  &
-    \textcolor{blue}{2017--2019}\\
+    2017--2020\\
     \hline
     TC            & Sayed M. R. Modaresi  & Iran              & 2${^o}$ Term  &
-    \textcolor{blue}{2018--2020}\\
+    2018--2021\\
     \hline
     TC            & Dina Helal            & Egypt             & 1${^o}$ Term  &
-    \textcolor{blue}{2017--2019}\\
+    2017--2020\\
     \hline
     OC            & Kazunori Iwata        & Japan             & 1${^o}$ Term  &
     2016--2019\\
     \hline
     OC            & Okan A{\c s}ik        & Turkey            & 1${^o}$ Term  &
-    \textcolor{blue}{2017-2019}\\
+    2017-2020\\
     \bottomrule
 \end{tabular}
 \end{table}
@@ -488,13 +457,17 @@ Teams participating in the Infrastructure competition must release their source 
 %%
 \begin{itemize}
   %%
-  \item \textbf{TC Selection} \textcolor{blue}{Selection to the TC will be held if there is a vacant position at the TC. A TC position becomes vacant if a TC member reaches the end of his/her term or a TC member renounces his/her position.}
+  \item \textbf{TC Selection} \textcolor{blue}{Selection to the TC will be held if there is a vacant position at the TC. A TC position becomes vacant if a TC member reaches the end of his/her term, a TC member is dismissed of his/her duties, or a TC member renounces his/her position.}
   %%
-  \item \textbf{OC Selection} \textcolor{blue}{Selection to the OC will be held if there is a vacant position at the OC. An OC position becomes vacant if an OC member reaches the end of his/her term or an OC member renounces his/her position.}
+  \item \textbf{OC Selection} \textcolor{blue}{Selection to the OC will be held if there is a vacant position at the OC. An OC position becomes vacant if an OC member reaches the end of his/her term, an OC member is dismissed of his/her duties, or an OC member renounces his/her position.}
+  %%
+  \item \textbf{EC Selection} \textcolor{blue}{Selection to the EC will be held if there is a vacant position at the EC. An OC position becomes vacant if an EC member reaches the end of his/her term or an EC member renounces his/her position.}
   %%
   \item \textbf{Nominating TC/OC candidates} Because there is a need to avoid concentration of TCs and OCs from the same region, we prioritize candidates of regions depending on the region where the current committee members reside. Currently, we prioritize candidates: $1^{st}$ North America, $2^{nd}$ Europe, and $3^{rd}$ other regions. To avoid such concentration, nomination of candidates from the same region of one current TC/OC member is not accepted. It is very important the TC/OC candidate are involved in the league and has experience on participating in RoboCup Rescue competitions.
   %%
-  \item \textbf{Selection Process} The selection process will be announced on the RoboCup competition venue in the year that there will be a vacant position in the TC or OC. The nomination deadlines will be published on the board, and personally and electronically to the team leaders. The selection will be done at the last official Team Leader meeting of the competition.
+  \item \textbf{Selection process for TC/OC} The selection process will be announced on the RoboCup competition venue in the year that there will be a vacant position in the TC or OC. The nomination deadlines will be published on the board, and personally and electronically to the team leaders. \textcolor{blue}{The selection will be done at the last official Team Leader meeting of the competition via a secret voting on the nominated candidates.}
+  %%
+  \item \textbf{Selection process for EC} \textcolor{blue}{The selection process for a new EC member is conducted exclusively by the current EC members and it is conditional to the RoboCup Federation approval.}
   %%
   \item \textbf{Duties} The TC/OC committee members have the responsibility of managing the league. Their specific tasks are
   %%
