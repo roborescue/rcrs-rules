@@ -26,6 +26,7 @@ Kazunori Iwata, Okan A{\c s}ik and Farshid Faraji}
 \begin{abstract}
 %%
 This document describes the rules and the ranking formula for the 2019 RoboCup Rescue Agent Simulation competitions.
+ \textcolor{red}{Needs more description}
 %%
 \end{abstract}
 %%
@@ -85,24 +86,12 @@ The RoboCup Rescue Agent Simulation Technical Committee is responsible to elabor
 
 \begin{enumerate}[(a)]
 %%
-\item \textbf{Remote participation:} Remote participation is not allowed in any circumstance. At least one team member must register and be locally present at the venue.
-%%
-\item \textbf{Rounds:} The competition is structured into three rounds: one preliminary round, one semifinal round, and one final round. The preliminary round will be executed in two consecutive days (first and second days of the competition), while the semifinal and final rounds are executed in one day each (third and fourth days of competition respectively).
-%%
-\item \textbf{Sessions:} Each round consists of several sessions. A session is comprised of a set of simulations in different scenarios. A member of the Organizing or Technical Committee will chair each session. The session chair is responsible for executing the simulations, collecting scores and logs, and handling any issues that arise during the session.
-%%
-\item \textbf{Code submission:} All teams must submit the team' source code (binary code will not be accepted) and adequate compiled scripts before the start of each round. The number and time of submissions and specific requirements will be explained during the competition setup time at the venue to the team leaders. The Organizing or Technical Committee has the authority to change the time of submissions and to audit all submitted teams' source-code.
-%%
-\item \textbf{Scenarios:} The scenarios will be provided by the Organizing or Technical Committee. Teams shall NOT know the disaster situation (i.e., map, random seeds, simulator configuration, parameter values, and phases of execution) of the session before it starts. All the conditions for a particular disaster situation will be identical for all the teams. A scenario is composed of a map, a set of rescue agents and civilians, and a set of configuration options for each of the simulator components. \label{item:scenarios}
-%%
-\item \textbf{Maps:} Each map is constrained to a maximum of $10,000$ roads and $10,000$ buildings. The building and road entrances are supposed to be fully connected. A validation tool will be used to check the full connectivity of roads and building entrances in each map. Teams do not have the right to complain in case road or building entrances are not fully connected if evidenced that this was not detected by the validation tool.
-%%
 \item \textbf{Agents:} Teams shall implement all types of agents using the ADF Framework. Teams can only implement their own code to replace or extend the classes:
 
 \small
-\texttt{adf.component.centralized.CommandExecutor}
+\texttt{\textcolor{red}{adf.component.centralized.CommandExecutor}}
 
-\texttt{adf.component.centralized.CommandPicker}
+\texttt{\textcolor{red}{adf.component.centralized.CommandPicker}}
 
 \texttt{adf.component.communication.ChannelSubscriber}
 
@@ -124,9 +113,10 @@ Teams are not allowed to change other classes, especially the Tactic classes. \t
 Teams must implement their code in a package named after their team's name and competition year.
 
 \small
-\texttt{\$TEAM\_YEAR.centralized.CommandExecutor}
 
-\texttt{\$TEAM\_YEAR.centralized.CommandPicker}
+\texttt{\textcolor{red}{\$TEAM\_YEAR.centralized.CommandExecutor}}
+
+\texttt{\textcolor{red}{\$TEAM\_YEAR.centralized.CommandPicker}}
 
 \texttt{\$TEAM\_YEAR.communication.ChannelSubscriber}
 
@@ -146,9 +136,10 @@ Teams must implement their code in a package named after their team's name and c
 For instance, if the short name of the team is TEST, the team should provide a package containing methods with
 
 \small
-\texttt{TEST\_2019.centralized.CommandExecutor}
 
-\texttt{TEST\_2019.centralized.CommandPicker}
+\texttt{\textcolor{red}{TEST\_2019.centralized.CommandExecutor}}
+
+\texttt{\textcolor{red}{TEST\_2019.centralized.CommandPicker}}
 
 \texttt{TEST\_2019.communication.ChannelSubscriber}
 
@@ -165,7 +156,7 @@ For instance, if the short name of the team is TEST, the team should provide a p
 \texttt{TEST\_2019.complex.TargetDetector}
 
 \normalsize
-\textcolor{blue}{If the team used a class or module from another team without any change, the package name must not be changed.}
+
 
 Teams should provide a configuration file containing information of the classes they have changed from the original ADF Framework and a mapping between classes, package path, and file in their code. \label{item:agents}
 %%
@@ -174,20 +165,37 @@ Teams should provide a configuration file containing information of the classes 
 \item \textbf{Code reuse:} \textcolor{blue}{The reuse of code of other teams from previous years is encouraged. However,}
 
 \begin{enumerate}[I.]
-  \item \textcolor{blue}{teams are not allowed to have more than 50\% of their overall teams' implementation as reused code from other teams}
+  \item \textcolor{blue}{teams are not allowed to have more than 50\% of their overall teams' implementation as reused code from other teams}\textcolor{red}{I'm not agree}
   %%
-  \item \textcolor{blue}{teams are not allowed to have more than 50\% of other team's implementation for classes}
+  \item \textcolor{blue}{teams are not allowed to have more than 50\% of other team's implementation for classes}\textcolor{red}{I think it is better to mention 50\% semantically. maybe a method can be implemented differently in coding, but they have same result.}
 
     \small
     \texttt{adf.component.module.complex.TargetDetector}
 
     \texttt{adf.component.module.complex.TargetAllocator}
 
-    \texttt{adf.component.centralized.CommandPicker}
+    \texttt{\textcolor{red}{adf.component.centralized.CommandPicker}}
 
-    \texttt{adf.component.centralized.CommandExecutor}
+    \texttt{\textcolor{red}{adf.component.centralized.CommandExecutor}}
+    
+    \item \textcolor{red}{If a team changed some part of a module from other teams, It should be mention why They changed the part, what is the impact of this change In a README file. The description should be at least contains 500 words.}
+    
+    \item \textcolor{red}{Even using a very small part of code from other teams you should explicitly} mention the part.
   %%
-  \item \textcolor{blue}{teams have to explicitly report in a README file which modules or parts of their code were reused for the sake of transparency. This information must be in the source-code and shared with the Organizing and Technical Committee members before the first day of competitions}
+   \item \textcolor{red}{Some modules are allowed to be used without any changes or with small changes. The list is:
+1-PathPlanning
+2-Clustering
+3-*ChannelSubscriber
+4-*MessageCoordinator 
+5-CommandExecutor*
+6-ActionExt*
+7-???CommandPicker*
+8-???CommandExecutor*
+}
+  \item \textbf{\textcolor{blue}{teams have to explicitly report in a README file which modules or parts of their code were reused for the sake of transparency. This information must be in the source-code and shared with the Organizing and Technical Committee members before the first day of competitions}}
+  \item \textcolor{blue}{If the team used a class or module from another team without any change, the package name must not be changed.}
+  \item \textcolor{red}{It is allowed to use external library. The library should be open source or approved by committee. The library should not violate RCRS rules.}
+  
 \end{enumerate}
 %%
 
@@ -196,6 +204,18 @@ Teams should provide a configuration file containing information of the classes 
 \item \textbf{Plagiarism:} \textcolor{blue}{If a team commits plagiarism, the team and its members will be banned participating on the current and next year's RoboCup Rescue Simulation competitions. The term plagiarism comprises any use of external knowledge without proper referencing, i.e., copying or using thoughts, ideas, texts or language in general and presenting them as their own. This applies for Team Description Papers as well as team code. All kinds of licenses and copyright have to be respected. This applies to the qualification process and the RoboCup Rescue tournaments. Please be aware that when a team is found guilty of committing plagiarism it is disqualified and banned at any time. This may also be in the middle of the tournament.}
 %%
 \item \textbf{Shared memory:} Agents cannot use any form of shared memory, including static memory accessible to all agents, direct function calls between agents, or writing files for use by other agents during the scenario simulation. The exception is the Pre-Computation phase when agents are allowed to write files (see item~\ref{item:phases} for details). The Organizing or Technical Committee may execute each agent of the team in a different virtual/physical machine if the team is suspected of violating this rule.
+%%
+\item \textbf{Remote participation:} Remote participation is not allowed in any circumstance. At least one team member must register and be locally present at the venue.
+%%
+\item \textbf{Rounds:} The competition is structured into three rounds: one preliminary round, one semifinal round, and one final round. The preliminary round will be executed in two consecutive days (first and second days of the competition), while the semifinal and final rounds are executed in one day each (third and fourth days of competition respectively).
+%%
+\item \textbf{Sessions:} Each round consists of several sessions. A session is comprised of a set of simulations in different scenarios. A member of the Organizing or Technical Committee will chair each session. The session chair is responsible for executing the simulations, collecting scores and logs, and handling any issues that arise during the session.
+%%
+\item \textbf{Code submission:} All teams must submit the team' source code (binary code will not be accepted) and adequate compiled scripts before the start of each round. The number and time of submissions and specific requirements will be explained during the competition setup time at the venue to the team leaders. The Organizing or Technical Committee has the authority to change the time of submissions and to audit all submitted teams' source-code.
+%%
+\item \textbf{Scenarios:} The scenarios will be provided by the Organizing or Technical Committee. Teams shall NOT know the disaster situation (i.e., map, random seeds, simulator configuration, parameter values, and phases of execution) of the session before it starts. All the conditions for a particular disaster situation will be identical for all the teams. A scenario is composed of a map, a set of rescue agents and civilians, and a set of configuration options for each of the simulator components. \label{item:scenarios}
+%%
+\item \textbf{Maps:} Each map is constrained to a maximum of $10,000$ roads and $10,000$ buildings. The building and road entrances are supposed to be fully connected. A validation tool will be used to check the full connectivity of roads and building entrances in each map. Teams do not have the right to complain in case road or building entrances are not fully connected if evidenced that this was not detected by the validation tool.
 %%
 \item \textbf{Phases:} The scenario simulation may be performed in two phases of execution of the team's code: the Pre-Computation phase (item~\ref{item:precompphase}) and the Simulation phase (item~\ref{item:simphase}). The Pre-Computation phase, however, is not mandatory for all scenarios and is assumed a configuration parameter of the scenario. Thus, the execution of the Pre-Computation phase will be defined as a configuration parameter of the scenario (see item~\ref{item:scenarios}). \label{item:phases}
 %%
@@ -354,10 +374,20 @@ In the competition venue, there will be several clusters with 4 computers each. 
 \begin{enumerate}[ ]
 %%
 \item \emph{Hardware:} Intel i7 CPU processor 3.0GHz or higher, and 8.0 GB or higher RAM
+\textcolor{red}{
+​Kernel: 
+	Intel CPU with at least 8 cores and with benchmark higher than 7000(from cpubenchmark.net), and 12.0 GB or higher RAM
+Agents:
+The hardware will contain one of these configurations:
+1- 4*Intel CPU with at least 8 cores and with benchmark higher than 7000(from cpubenchmark.net), and 12.0 GB or higher RAM
+or
+2- 1 * Intel CPU with at least 24 cores and with benchmark higher than 18000(from cpubenchmark.net), and 32.0 GB or higher RAM
+}
 %%
 \item \emph{Operating System:} Linux Ubuntu 16.04 LTS (64bit) or higher.
 %%
 \item \emph{Java Virtual Machine:} OpenJDK Java 8 or higher.
+\item \textcolor{red}{\emph{Additional Softwares:}Docker}
 %%
 \item \emph{Simulation Packages:} The simulation package used in the 2019 RoboCup Rescue Simulation League competition will be available at \url{https://github.com/roborescue/rcrs-server}.
 %%
@@ -392,9 +422,12 @@ The Technical Challenges competition rules and the hardware configuration are th
 \end{enumerate}
 %%
 %%
+
 \subsection{Ranking}
 %%
+\textcolor{red}{i think it is not correct. Isn't it better to have the same ranking formula as agent competition?}
 The competition is comprised of a set of scenarios ($M$). Each participating team receives an identification $T$ ranging from $t_{1}$ to $t_{n}$, where $n$ represents the number of teams participating on the competition. The best teams that provide the modules to replace in all teams receives an identification $B$ ranging from $b_{1}$ to $b_{x}$, where $x$ represents the number of teams which all other teams will use the modules from. Each scenario also receives an identification ranging from $m_{1}$ to $m_{p}$, where $p$ represents the number of scenarios. A score $SC_{ji}^{k}$ is assigned to each team $i \in T$ ($T = \{t_{1},\dots,t_{n}\}$) for each scenario $j \in M$ ($M = \{m_{1},\dots,m_{p}\}$) and $k \in B$ ($B = \{b_{1},\dots,b_{x}\}$).
+
 
 The final team score is the mean among the worst scores in each scenario.
 %%
@@ -405,6 +438,7 @@ FTP_{i} = \frac{\sum_{j=1}^{p}{\min_{k \in B}(SC_{ji}^{k})}}{p}
 
 The final team scores are used to generate a ranking of all the teams. The team with the highest final score is ranked as first, the second highest as second, and so on.
 %%
+
 \section{Infrastructure Competition}
 \label{sec:infrastructure}
 %%
@@ -491,7 +525,7 @@ Teams participating in the Infrastructure competition must release their source 
     %%
   \end{itemize}
   %%
-  \item \textbf{Commitment} \textcolor{blue}{If elected to the TC/OC role, the nominated candidate shall commit to continue as member for at least 2 consecutive years. It is accepted that TC/OC members leave their role before the end of the term to assume another role in the RoboCup community, such as Executive or Technical Committee member.}
+  \item \textbf{Commitment} \textcolor{blue}{If elected to the TC/OC role, the nominated candidate shall commit to continue as member for \textcolor{red}{IS IT CORRECT? at least 2 consecutive years}. It is accepted that TC/OC members leave their role before the end of the term to assume another role in the RoboCup community, such as Executive or Technical Committee member.}
   %%
   \item \textbf{Dismissed} TC/OC members that do not show commitment to the League and their responsibilities can be dismissed assuming that the majority of the other EC, TC, and OC members agree with the dismissal.
 \end{itemize}
