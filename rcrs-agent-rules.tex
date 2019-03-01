@@ -10,7 +10,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{multirow}
 \usepackage{tablefootnote}
-\usepackage{xcolor}
 %%
 \begin{document}
 %%
@@ -18,7 +17,7 @@
        2019 Agent Simulation Competition Rules}
 \author{Luis G. Nardin, Sayed M. R. Modaresi, Dina Helal,\\
 Kazunori Iwata, Okan A{\c s}ik and Farshid Faraji}
-\date{Version 1.3}
+\date{Version 1.4}
 %%
 \maketitle
 %%
@@ -151,18 +150,18 @@ Teams should provide a configuration file containing information of the classes 
 %%
 \item \textbf{Modularity:} Teams are forbidden to cast or make internal dependency between the classes listed in item~\ref{item:agents}. It is mandatory that these classes are usable independent of each other.
 %%
-\item \textbf{Code reuse:} The reuse of code of other teams from previous years is encouraged. However,
+\item \textbf{Code reuse:} The reuse of code of other teams from previous years is encouraged.
 
 \begin{enumerate}[I.]
   %%
-  \item teams are not allowed to have more than 50\% of other team's code or logic for the classes
+  \item Teams are not allowed to have more than 50\% of other team's code or logic for the classes
 
   \small
   \texttt{adf.component.module.complex.TargetDetector}
 
   \texttt{adf.component.module.complex.TargetAllocator}
   %%
-  \item teams are allowed to reuse without any change the classes
+  \item Teams are allowed to reuse without any change the classes
 
   \small
   \texttt{adf.component.centralized.CommandPicker}
@@ -179,9 +178,9 @@ Teams should provide a configuration file containing information of the classes 
 
   \texttt{adf.component.module.algorithm.PathPlanning}
   %%
-  \item the reuse of any code or module from another team must be explicitly reported in a README document and released in the source-code and shared with the Organizing and Technical Committee members before the first day of competition. In the README document, the team must inform what motivated the reuse of the code or module and, if they made any changes (small or large) to the code or module, these changes must be described in detail.
+  \item The reuse of any code or module from another team must be explicitly reported in a README document and released in the source-code and shared with the Organizing and Technical Committee members before the first day of competition. In the README document, the team must inform what motivated the reuse of the code or module and, if they made any changes (small or large) to the code or module, these changes must be described in detail.
   %%
-  \item if the team used a class or module from another team without any change, the package name must not be changed.
+  \item If the team used a class or module from another team without any change, the package name must not be changed.
   %%
 \end{enumerate}
 %%
@@ -512,6 +511,7 @@ The RoboCup Rescue Agent Competition is composed of three committees: Executive 
 %%
 We thanks all the former RoboCup Rescue Simulation League members of the Technical, Organizing, and Executive Committees for their effort in promoting and organizing this competition. Special thanks to Nobuhiro Ito for his dedication to the RoboCup Rescue Simulation League.
 %%
+\newpage
 \appendix
 \section{Parameters}
 \label{sec:parameters}
