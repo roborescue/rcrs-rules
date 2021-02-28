@@ -1,0 +1,78 @@
+= Committee Members Selection Rules
+:author: RoboCup Rescue Simulation Organizers
+:revnumber: 1.0
+:revdate: February 27, 2021
+:sectids!:
+:sectnums:
+:sectnumlevels: 3
+:toclevels: 3
+:outlinelevels: 3
+:xrefstyle: short
+:imagesoutdir: images
+:imagesdir: images
+:math:
+:stem: latexmath
+:source-highlighter: rouge
+:bibtex-file: references.bib
+:bibtex-style: apa
+:bibtex-order: alphabetical
+:bibtex-format: asciidoc
+:title-page:
+
+<<<
+
+[#sec:purpose]
+== Purpose
+This document aims to describe the selection process, duties and dismissal rules for members of the Organizational, Technical, and Executive Committees of RoboCup Rescue Agent Simulation league.
+
+[#sec:selection_process]
+== Selection Process Rules
+
+. **Technical Committee (TC) Selection** Selection to the TC will be held if there is a vacant position at the TC. A TC position becomes vacant if a TC member reaches the end of his/her term, a TC member is dismissed of his/her duties, or a TC member renounces his/her position.
+
+. **Organizational Committee (OC) Selection** Selection to the OC will be held if there is a vacant position at the OC. An OC position becomes vacant if an OC member reaches the end of his/her term, an OC member is dismissed of his/her duties, or an OC member renounces his/her position.
+
+. **Executive Committee (EC) Selection** Selection to the EC will be held if there is a vacant position at the EC. An OC position becomes vacant if an EC member reaches the end of his/her term or an EC member renounces his/her position.
+
+. **Nominating TC/OC candidates** Because there is a need to avoid concentration of TCs and OCs from the same region, we prioritize candidates of regions depending on the region where the current committee members reside. Currently, we prioritize candidates: 1^st^ North America, 2^nd^ Europe, and 3^rd^ other regions. To avoid such concentration, nomination of candidates from the same region of one current TC/OC member is not accepted. It is very important the TC/OC candidate are involved in the league and has experience with RoboCup Rescue competitions.
+
+. **Selection process for TC/OC** The selection process will be announced during the RoboCup competition in the year that there will be a vacant position in the TC or OC. The nomination deadlines will be publicly published, and informed directly to participating team leaders. The selection will be done at the last official Team Leader meeting of the competition via a secret voting on the nominated candidates.
+
+. **Selection process for EC** The selection process for a EC member is conducted exclusively by the current EC members and it is conditional to the RoboCup Federation approval.
+
+[#sec:duties]
+== Duties
+The TC/OC committee members have the responsibility of managing the league. The specific tasks are
+
+. Elaborate RoboCup Rescue league roadmap
+. Software improvement and maintenance
+. Update the web content
+. Update the rules of the competition
+. Organize the Competition Qualification process
+. Negotiate with Local Organizing Committee
+. Manage competition schedule
+. Refereeing during the competition
+
+The TC/OC role shall commit to continue as member for at least 3 consecutive years. It is accepted that TC/OC members leave their role before the end of the term to assume another role in the RoboCup community, such as Executive or Technical Committee member.
+
+[#sec:dismissal]
+== Dismissal
+TC/OC members that do not show commitment to the League and their responsibilities can be dismissed assuming that the majority of the other EC, TC, and OC members agree with the dismissal.
+
+[#sec:members]
+== Current Committee Members
+
+<<table:current_members>> list the current committee members.
+
+.Current Committee Members.
+[frame=topbot,grid=rows,stripes=none]
+[[table:current_members]]
+|===
+| **Role** | **Name**             | **Country**  | **Term** | **Period**
+| EC       | Farshid Faraji       | Iran         | 2^nd^    | 2018-2021
+| EC       | Luis G. Nardin       | Ireland      | 1^st^    | 2017-2020
+| TC       | Sayed M. R. Modaresi | Iran         | 2^nd^    | 2018-2021
+| TC       | Dinal Helal          | Ireland      | 1^st^    | 2017-2020
+| OC       | Kazunori Iwata       | Japan        | 2^nd^    | 2019-2022
+| OC       | Okan Asik            | Turkey       | 1^st^    | 2017-2020
+|===

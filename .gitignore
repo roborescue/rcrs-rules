@@ -1,7 +1,15 @@
+## LaTeX
+__latex*
 *.aux
 *.bbl
 *.blg
 *.log
 *.out
-*.pdf
 *.synctex.gz
+*.toc
+
+# Visulal Studio Code
+.vscode
+
+# Theia
+.theia

@@ -1,0 +1,42 @@
+= Infrastructure Competition Rules: RoboCup 202x
+:author: RoboCup Rescue Simulation Organizers
+:revnumber: 1.0
+:revdate: February 27, 2021
+:sectids!:
+:sectnums:
+:sectnumlevels: 3
+:toclevels: 3
+:outlinelevels: 3
+:xrefstyle: short
+:imagesoutdir: images
+:imagesdir: images
+:math:
+:stem: latexmath
+:source-highlighter: rouge
+:bibtex-file: references.bib
+:bibtex-style: apa
+:bibtex-order: alphabetical
+:bibtex-format: asciidoc
+:title-page:
+
+<<<
+
+[#sec:purpose]
+== Purpose
+This document describes the rules of the RoboCup Rescue Simulation Infrastructure competition.
+
+[#sec:description]
+== Description
+The Infrastructure competition aims to promote research and development of new features, artifacts, and tools complementary to the existing simulator or relevant to natural disaster management.
+
+The competition intends to evaluate enhancements and extensions to the RoboCup Rescue Simulation League simulators (Agent Simulation and Virtual Robots) based on new ideas and concepts proposed in these proposals. The evaluation will be done in a panel composed by participating team members and the winner chosen accordingly to a set of factors related to the technical aspects of the tool or simulator, and the quality of the presentation.
+
+[#sec:ranking]
+== Ranking
+The score of each team participating in the Infrastructure Competition is given by the sum of the scores given by all other participating teams to the RoboCup Rescue Agent Simulation. The scores are based on the innovative aspects of the proposal and the presentation's quality and clarity.
+
+The participating team with the highest sum of scores is the winner of the Infrastructure Competition. Each member of the Organizing and Technical Committees who is not a member of a team participating in the competition may participate in the scoring.
+
+[#sec:duty_release]
+== Duty of Release
+Teams participating in the Infrastructure competition must release their source-code as an open-source project before the competition. Even though a team is accepted to participate in the competition, if it does not release the source-code, a complete manual of operation, prepare an easy installation and running script files (for example, `install.sh` and `run.sh`) before the beginning of the competition, will be disqualified. Thus, it will not be evaluated and considered for winning the prize.
