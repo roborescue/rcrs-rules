@@ -336,8 +336,6 @@ The following tables show the simulator and scenario parameters and their accept
 | max.centre                      | Number of channels a centre agent can subscribe to         | 0 - 20
 |===
 
-<<<
-
 .Ranges for voice channel parameters.
 [frame=topbot,grid=rows,stripes=none]
 [[table:voice_channel]]
@@ -369,8 +367,6 @@ The following tables show the simulator and scenario parameters and their accept
 | noise.[input \| output].dropout.use    | Whether or not to use dropout noise on channel <x> in input or output | yes \| no
 | noise.[input \| output].dropout.p      | Probability of message dropout                           | 0 - 1
 |===
-
-<<<
 
 .Ranges for perception parameters.
 [frame=topbot,grid=rows,stripes=none]
