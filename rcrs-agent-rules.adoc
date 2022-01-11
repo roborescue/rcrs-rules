@@ -2,6 +2,10 @@
 :author: RoboCup Rescue Simulation Organizers
 :revnumber: 1.0
 :revdate: February 26, 2021
+:size: A4
+:reproducible: true
+:encode: UTF-8
+:lang: en
 :sectids!:
 :sectnums:
 :sectnumlevels: 3
@@ -12,12 +16,13 @@
 :imagesdir: images
 :math:
 :stem: latexmath
-:source-highlighter: rouge
+:source-highlighter: highlight.js
 :bibtex-file: references.bib
 :bibtex-style: apa
 :bibtex-order: alphabetical
 :bibtex-format: asciidoc
 :title-page:
+:toc: left
 
 <<<
 

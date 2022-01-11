@@ -1,0 +1,34 @@
+# Publish Asciidoc Documentation
+name: asciidoctor-ghpages
+
+on:
+  push:
+    paths:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: asciidoctor/docker-asciidoctor
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Generate rcrs-agent-rules HTML
+      run: asciidoctor -b html5 -r asciidoctor-bibtex -a bibtex-file=references.bib rcrs-agent-rules.adoc -o rcrs-agent-rules.html
+    - name: Generate rcrs-agent-rules PDF
+      run: asciidoctor-pdf -r asciidoctor-bibtex -r asciidoctor-mathematical -a bibtex-file=references.bib -a mathematical-format=svg -a optimize -a pdf-theme=resources/themes/rules.yml -a pdf-fontsdir=resources/fonts rcrs-agent-rules.adoc -o rcrs-agent-rules.pdf
+    - name: Generate rcrs-infra-rules HTML
+      run: asciidoctor -b html5 -r asciidoctor-bibtex -a bibtex-file=references.bib rcrs-infra-rules.adoc -o rcrs-infra-rules.html
+    - name: Generate rcrs-infra-rules PDF
+      run: asciidoctor-pdf -r asciidoctor-bibtex -r asciidoctor-mathematical -a bibtex-file=references.bib -a mathematical-format=svg -a optimize -a pdf-theme=resources/themes/rules.yml -a pdf-fontsdir=resources/fonts rcrs-infra-rules.adoc -o rcrs-infra-rules.pdf
+    - name: Generate rcrs-selection-rules HTML
+      run: asciidoctor -b html5 -r asciidoctor-bibtex -a bibtex-file=references.bib rcrs-selection-rules.adoc -o rcrs-selection-rules.html
+    - name: Generate rcrs-selection-rules PDF
+      run: asciidoctor-pdf -r asciidoctor-bibtex -r asciidoctor-mathematical -a bibtex-file=references.bib -a mathematical-format=svg -a optimize -a pdf-theme=resources/themes/rules.yml -a pdf-fontsdir=resources/fonts rcrs-infra-selection.adoc -o rcrs-selection-rules.pdf
+    - name: Deploy to GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v2
+      with:
+        target_branch: gh-pages
+        build_dir: /
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
