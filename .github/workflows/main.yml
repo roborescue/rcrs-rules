@@ -24,7 +24,7 @@ jobs:
     - name: Generate rcrs-selection-rules HTML
       run: asciidoctor -b html5 -r asciidoctor-bibtex -a bibtex-file=references.bib rcrs-selection-rules.adoc -o rcrs-selection-rules.html
     - name: Generate rcrs-selection-rules PDF
-      run: asciidoctor-pdf -r asciidoctor-bibtex -r asciidoctor-mathematical -a bibtex-file=references.bib -a mathematical-format=svg -a optimize -a pdf-theme=resources/themes/rules.yml -a pdf-fontsdir=resources/fonts rcrs-infra-selection.adoc -o rcrs-selection-rules.pdf
+      run: asciidoctor-pdf -r asciidoctor-bibtex -r asciidoctor-mathematical -a bibtex-file=references.bib -a mathematical-format=svg -a optimize -a pdf-theme=resources/themes/rules.yml -a pdf-fontsdir=resources/fonts rcrs-selection-rules.adoc -o rcrs-selection-rules.pdf
     - name: Deploy to GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2
       with:
