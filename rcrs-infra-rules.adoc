@@ -1,7 +1,7 @@
-= Infrastructure Competition Rules: RoboCup 202x
+= Infrastructure Competition Rules: RoboCup 2022
 :author: RoboCup Rescue Simulation Organizers
-:revnumber: 1.0
-:revdate: February 27, 2021
+:revnumber: 2.0
+:revdate: January 11, 2022
 :size: A4
 :reproducible: true
 :encode: UTF-8
@@ -12,15 +12,7 @@
 :toclevels: 3
 :outlinelevels: 3
 :xrefstyle: short
-:imagesoutdir: images
-:imagesdir: images
-:math:
-:stem: latexmath
 :source-highlighter: highlight.js
-:bibtex-file: references.bib
-:bibtex-style: apa
-:bibtex-order: alphabetical
-:bibtex-format: asciidoc
 :title-page:
 :toc: left
 

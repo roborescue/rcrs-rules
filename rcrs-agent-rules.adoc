@@ -17,10 +17,6 @@
 :math:
 :stem: latexmath
 :source-highlighter: highlight.js
-:bibtex-file: references.bib
-:bibtex-style: apa
-:bibtex-order: alphabetical
-:bibtex-format: asciidoc
 :title-page:
 :toc: left
 
