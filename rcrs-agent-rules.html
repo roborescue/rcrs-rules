@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">RoboCup Rescue Simulation Organizers</span><br>
 <span id="revnumber">version 2.0,</span>
-<span id="revdate">Januray 11, 2022</span>
+<span id="revdate">Januray 12, 2022</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -452,9 +452,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#sec:purpose">1. Purpose</a></li>
 <li><a href="#sec:major_changes">2. Major Changes</a>
 <ul class="sectlevel2">
-<li><a href="#sec:no_fire">2.1. No Fire Scenarios</a></li>
-<li><a href="#sec:changes_action_commands">2.2. Changes to Agents' Action Commands</a></li>
-<li><a href="#sec:refuge_capacity">2.3. Refuge Capacity</a></li>
+<li><a href="#sec:python_support">2.1. Python support</a></li>
+<li><a href="#sec:docker_support">2.2. Docker support</a></li>
+<li><a href="#sec:no_fire">2.3. No Fire Scenarios</a></li>
+<li><a href="#sec:changes_action_commands">2.4. Changes to Agents' Action Commands</a></li>
+<li><a href="#sec:refuge_capacity">2.5. Refuge Capacity</a></li>
 </ul>
 </li>
 <li><a href="#sec:agent_simulation">3. Agent Simulation Competition</a>
@@ -490,18 +492,66 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Scenarios without fires [<a href="#sec:no_fire">Section 2.1</a>]</p>
+<p>Python support [<a href="#sec:python_support">Section 2.1</a>]</p>
 </li>
 <li>
-<p>Changes to agents' action commands [<a href="#sec:changes_action_commands">Section 2.2</a>]</p>
+<p>Docker support [<a href="#sec:docker_support">Section 2.2</a>]</p>
 </li>
 <li>
-<p>Refuges with limited capacity [<a href="#sec:refuge_capacity">Section 2.3</a>]</p>
+<p>Scenarios without fires [<a href="#sec:no_fire">Section 2.3</a>]</p>
+</li>
+<li>
+<p>Changes to agents' action commands [<a href="#sec:changes_action_commands">Section 2.4</a>]</p>
+</li>
+<li>
+<p>Refuges with limited capacity [<a href="#sec:refuge_capacity">Section 2.5</a>]</p>
 </li>
 </ol>
 </div>
 <div class="sect2">
-<h3 id="sec:no_fire">2.1. No Fire Scenarios</h3>
+<h3 id="sec:python_support">2.1. Python support</h3>
+<div class="paragraph">
+<p>Teams can now choose to implement their agents in Java or Python. For teams that wish to continue implementing in Java No change is required. This is a new optional change to use a different programming language to communicate with the simulator.</p>
+</div>
+<div class="paragraph">
+<p>For Java implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository: <a href="https://github.com/roborescue/adf-sample-agent-java" class="bare">https://github.com/roborescue/adf-sample-agent-java</a>.</p>
+</li>
+<li>
+<p>Documentation: <a href="https://github.com/roborescue/adf-sample-agent-java/blob/master/docs/manual.adoc" class="bare">https://github.com/roborescue/adf-sample-agent-java/blob/master/docs/manual.adoc</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For Python implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository: <a href="https://github.com/roborescue/rcrs-sample-agent-python" class="bare">https://github.com/roborescue/rcrs-sample-agent-python</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:docker_support">2.2. Docker support</h3>
+<div class="paragraph">
+<p>Teams can choose to setup their development environment locally or to use a pre-setup docker environment.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository: <a href="https://github.com/roborescue/rcrs-docker" class="bare">https://github.com/roborescue/rcrs-docker</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:no_fire">2.3. No Fire Scenarios</h3>
 <div class="paragraph">
 <p>In real earthquake affected areas, few to no fire spots are observed. Those fires observed are mostly restricted to a building or a small area. In the RCRS, however, fires spreads quickly between the buildings if not controlled early in the simulation impacting heavily in the final agent teams' score.</p>
 </div>
@@ -509,11 +559,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>To make the simulation scenarios more realistic, fires were eliminated from the scenarios. Therefore, scenarios are defined without any initial fire spot and the <em>fire simulator</em> and the <em>ignition simulator</em> are configured so that fire never ignites during the simulation.</p>
 </div>
 <div class="paragraph">
-<p>In the no fire scenarios, Fire Brigade agents and Hydrants lose their original purpose. Hence, the Fire Brigade agents had their original goal switched from <em>extinguishing fire</em> to <em>rescuing trapped civilians</em>, while Ambulance Teams original goal was changed to transporting injured civilians to refuges eliminating the ability to rescue trapped civilians (see <a href="#sec:changes_action_commands">Section 2.2</a>).</p>
+<p>In the no fire scenarios, Fire Brigade agents and Hydrants lose their original purpose. Hence, the Fire Brigade agents had their original goal switched from <em>extinguishing fire</em> to <em>rescuing trapped civilians</em>, while Ambulance Teams original goal was changed to transporting injured civilians to refuges eliminating the ability to rescue trapped civilians (see <a href="#sec:changes_action_commands">Section 2.4</a>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sec:changes_action_commands">2.2. Changes to Agents' Action Commands</h3>
+<h3 id="sec:changes_action_commands">2.4. Changes to Agents' Action Commands</h3>
 <div class="paragraph">
 <p>The updated action commands available to the agents are:</p>
 </div>
@@ -562,7 +612,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="sec:refuge_capacity">2.3. Refuge Capacity</h3>
+<h3 id="sec:refuge_capacity">2.5. Refuge Capacity</h3>
 <div class="paragraph">
 <p>By eliminating the fire from scenarios, the most relevant challenge in the competition becomes to rescue trapped civilians and transport them to refuges. To make this task more challenging and realistic, refuges were changed in order to admit only a limited number of victims in its premises. Once the limit is reached, the refuge does not admit any further victims. This creates a challenge to the Ambulance Teams that need to decide where to transport the victims instead of simply taking them to the closest refuge.</p>
 </div>
