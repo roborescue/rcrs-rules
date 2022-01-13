@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">RoboCup Rescue Simulation Organizers</span><br>
 <span id="revnumber">version 2.0,</span>
-<span id="revdate">Januray 12, 2022</span>
+<span id="revdate">Januray 13, 2022</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -462,7 +462,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#sec:agent_simulation">3. Agent Simulation Competition</a>
 <ul class="sectlevel2">
 <li><a href="#sec:agent_rules">3.1. Rules</a></li>
-<li><a href="#sec:agent_ranking">3.2. Ranking</a></li>
+<li><a href="#sec:agent_presentation">3.2. Presentation</a></li>
+<li><a href="#sec:agent_ranking">3.3. Ranking</a></li>
 </ul>
 </li>
 <li><a href="#">Appendix A: Parameters</a></li>
@@ -487,7 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="sec:major_changes">2. Major Changes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The RoboCup Rescue Agent Simulator (<a href="https://github.com/roborescue/rcrs-server">RCRS</a>) and the RoboCup Rescue Agent Development Framework (<a href="https://github.com/roborescue/rcrs-adf-core">RCRS ADF</a>) for the RoboCup 2022 incorporate major changes motivated by discussions with disaster management practitioners and academic researchers. The changes are intended (1) to make the simulation scenarios more realistic and (2) to target one relevant rescue challenge, i.e., civilian rescue. The major changes implemented are:</p>
+<p>The RoboCup Rescue Agent Simulation environment for the RoboCup 2022 incorporate major changes motivated by discussions with disaster management practitioners and academic researchers. The changes are intended (1) to make the simulation scenarios more realistic and (2) to target one relevant rescue challenge, i.e., civilian rescue. The major changes implemented are:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -511,10 +512,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="sec:python_support">2.1. Python support</h3>
 <div class="paragraph">
-<p>Teams can now choose to implement their agents in Java or Python. For teams that wish to continue implementing in Java No change is required. This is a new optional change to use a different programming language to communicate with the simulator.</p>
+<p>Teams can now choose to implement their agents in Java or Python. For teams that wish to continue implementing in Java no change is required. This is a new optional change to use a different programming language to communicate with the simulator.</p>
 </div>
 <div class="paragraph">
-<p>For Java implementation:</p>
+<p>For ADF Java implementation:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -660,28 +661,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>The competition is divided in three rounds (i.e., preliminary, semifinal, and final rounds), see <a href="#sec:agent_rules">Section 3.1</a>. At each round, the participating teams provide their agent team&#8217;s code that will be executed on a set of different disaster scenarios and a score calculated to each scenario. At the end of the preliminary and semifinal rounds, the set of agent teams with the highest sum of scores are selected to move to the next round of the competition. At the end of the final round, the participant team whose agent team accumulates the highest sum of scores is proclaimed the winner.</p>
 </div>
-<div class="paragraph">
-<p>Participant teams are also required to prepare a <strong>20 minutes</strong> video presentation about their agent team' strategy. The presentation aims to share the knowledge of the participating teams and improve the academic research aspects of the league. The presentation shall be shared with the organizers until the end of the first day of competitions. The video will be shared online where the public will be able to ask questions. A slide presentation template is available at <a href="https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx" class="bare">https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx</a>.</p>
-</div>
 <div class="sect2">
 <h3 id="sec:agent_rules">3.1. Rules</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><a id="item:agents"></a><strong>Agents</strong> Teams shall implement all types of agents using the <a href="https://github.com/roborescue/rcrs-adf-core">RCRS ADF Framework</a> (a sample implementation is available at <a href="https://github.com/roborescue/rcrs-adf-sample">RCRS ADF Sample</a>) that will be executed on the <a href="https://github.com/roborescue/rcrs-server">RoboCup Rescue Agent Simulator</a>. Teams can only implement their own code to replace or extend the following RCRS ADF classes:</p>
+<p><a id="item:agents"></a><strong>Agents</strong> Teams shall implement all types of agents using the <a href="https://github.com/roborescue/adf-core-java">RCRS ADF Framework</a> (a sample implementation is available at <a href="https://github.com/roborescue/adf-sample-agent-java">RCRS ADF Sample</a>) or the <a href="https://github.com/roborescue/rcrs-sample-agent-python">RCRS Core Python</a> that will be executed on the <a href="https://github.com/roborescue/rcrs-server">RoboCup Rescue Agent Simulator</a>. Teams using the <a href="https://github.com/roborescue/adf-core-java">RCRS ADF Framework</a> can only implement their own code to replace or extend the following RCRS ADF classes:</p>
 <div class="openblock">
 <div class="content">
 <div class="listingblock">
 <div class="content">
-<pre>  adf.component.centralized.CommandExecutor
-  adf.component.centralized.CommandPicker
-  adf.component.communication.ChannelSubscriber
-  adf.component.communication.MessageCoordinator
-  adf.component.extraction.ExtAction
-  adf.component.module.algorithm.Clustering
-  adf.component.module.algorithm.PathPlanning
-  adf.component.module.complex.TargetAllocator
-  adf.component.module.complex.TargetDetector</pre>
+<pre>  adf.core.component.centralized.CommandExecutor
+  adf.core.component.centralized.CommandPicker
+  adf.core.component.communication.ChannelSubscriber
+  adf.core.component.communication.MessageCoordinator
+  adf.core.component.extaction.ExtAction
+  adf.core.component.module.algorithm.Clustering
+  adf.core.component.module.algorithm.PathPlanning
+  adf.core.component.module.complex.TargetAllocator
+  adf.core.component.module.complex.TargetDetector</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -696,7 +694,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   TEAM_YEAR.centralized.CommandPicker
   TEAM_YEAR.communication.ChannelSubscriber
   TEAM_YEAR.communication.MessageCoordinator
-  TEAM_YEAR.extraction.ExtAction
+  TEAM_YEAR.extaction.ExtAction
   TEAM_YEAR.algorithm.Clustering
   TEAM_YEAR.algorithm.PathPlanning
   TEAM_YEAR.complex.TargetAllocator
@@ -712,7 +710,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   TEST_2022.centralized.CommandPicker
   TEST_2022.communication.ChannelSubscriber
   TEST_2022.communication.MessageCoordinator
-  TEST_2022.extraction.ExtAction
+  TEST_2022.extaction.ExtAction
   TEST_2022.algorithm.Clustering
   TEST_2022.algorithm.PathPlanning
   TEST_2022.complex.TargetAllocator
@@ -738,8 +736,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Teams are not allowed to have more than 50% of other agent team&#8217;s code or logic in the classes</p>
 <div class="listingblock">
 <div class="content">
-<pre>  adf.component.module.complex.TargetDetector
-  adf.component.module.complex.TargetAllocator</pre>
+<pre>  adf.core.omponent.module.complex.TargetDetector
+  adf.core.component.module.complex.TargetAllocator</pre>
 </div>
 </div>
 </li>
@@ -747,13 +745,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Teams are allowed to reuse without any change the classes</p>
 <div class="listingblock">
 <div class="content">
-<pre>  adf.component.centralized.CommandPicker
-  adf.component.centralized.CommandExecutor
-  adf.component.communication.ChannelSubscriber
-  adf.component.communication.MessageCoordinator
-  adf.component.extraction.ExtAction
-  adf.component.module.algorithm.Clustering
-  adf.component.module.algorithm.PathPlanning</pre>
+<pre>  adf.core.component.centralized.CommandPicker
+  adf.core.component.centralized.CommandExecutor
+  adf.core.component.communication.ChannelSubscriber
+  adf.core.component.communication.MessageCoordinator
+  adf.core.component.extaction.ExtAction
+  adf.core.component.module.algorithm.Clustering
+  adf.core.component.module.algorithm.PathPlanning</pre>
 </div>
 </div>
 </li>
@@ -901,7 +899,50 @@ the map.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sec:agent_ranking">3.2. Ranking</h3>
+<h3 id="sec:agent_presentation">3.2. Presentation</h3>
+<div class="paragraph">
+<p>The presentation aims to share the knowledge of the participating teams and improve the academic research aspects of the league. Each participating team will have <strong>20 minutes to present</strong> their implementation and another <strong>10 minutes for questions and answers</strong>. A presentation template is available at <a href="https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx" class="bare">https://github.com/roborescue/rcrs-templates/blob/master/presentation/presentation_template.pptx</a>.</p>
+</div>
+<div class="paragraph">
+<p>The presentation will be evaluated by a panel of experts and the leader of the other teams. The final evaluation of the presentation will be incorporated into the score of the preliminary, semifinal and final rounds. The presentations will be evaluated according to a set of criteria:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Relevance</strong> [5 points] Evaluates how relevant is the participating team&#8217;s approach to the goals of the RoboCup Rescue. 0 means it is not relevant and 5 means it is very relevant.</p>
+</li>
+<li>
+<p><strong>Originality</strong> [5 points] Evaluates how original is the proposed participating team&#8217;s approach to RoboCup Rescue. 0 means it is not original and 5 means it is very original.</p>
+</li>
+<li>
+<p><strong>Significance</strong> [5 points) Evaluates how significant to the league is the proposed participating team&#8217;s approach. 0 means it is not significant and 5 means it is very significant.</p>
+</li>
+<li>
+<p><strong>Slide Content</strong> [5 points] Evaluates the quality and completeness of the presentation material with respect to the participating team' strategy and the readability. 0 means that the presentation slides are of poor quality with respect to the content and 5 means that it is very informative and complete.</p>
+</li>
+<li>
+<p><strong>Slide Structure</strong> [5 points] Evaluates the structure of the presentation material. 0 means that the presentation slides are poorly structured and 5 means that it is very well structured.</p>
+</li>
+<li>
+<p><strong>Talk</strong> [5 points] Evaluates how clear and easy to follow was the presentation and explanation, and whether the presenter had a positive attitude or not with respect to the presentation and the raised questions. 0 means the presentation is not clear or the presenter had a bad attitude and 5 means the presentation is clear and the presenter had good attitude.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Each team&#8217;s presentation score will be calculated taking into account the sum of points given by the other teams excluding the X best and the X worst scores, where X is defined based on the number of competing teams during the first team leaders' meeting, plus the points given by the 2 Committee members who are not member of any participating team on the competition.</p>
+</div>
+<div class="paragraph">
+<p>The score of each participating team will then be included in the ranking calculation in <a href="#sec:agent_ranking">Ranking</a> as a scenario in all rounds that the participating team participates.</p>
+</div>
+<div class="paragraph">
+<p>All participating teams will have the same number of evaluations and the same evaluators. In case some evaluator is not able to participate in the evaluation of all participating teams' presentation, his/her evaluation will be disregarded.</p>
+</div>
+<div class="paragraph">
+<p>Team leaders or a representative assigned by the team leader must be present at all other participating teams presentation. The presentation session chair will check if the representative of each team is present at the beginning of each presentation, if there is no representative present the missing participating team&#8217;s presentation score will be set to 0 (zero) and all the scores assigned by that participating team will be disregarded.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:agent_ranking">3.3. Ranking</h3>
 <div class="paragraph">
 <p>Each round is composed of several sessions (\(S\)), and at each session the participating teams receive an identification ranging from \(t_{1}\) to \(t_{n}\), where \(n\) represents the number of participating teams in that session.</p>
 </div>
