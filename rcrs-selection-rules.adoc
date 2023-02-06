@@ -31,7 +31,7 @@ This document aims to describe the selection process, duties and dismissal rules
 
 . **Organizational Committee (OC) Selection** Selection to the OC will be held if there is a vacant position at the OC. An OC position becomes vacant if an OC member reaches the end of his/her term, an OC member is dismissed of his/her duties, or an OC member renounces his/her position.
 
-. **Executive Committee (EC) Selection** Selection to the EC will be held if there is a vacant position at the EC. An OC position becomes vacant if an EC member reaches the end of his/her term or an EC member renounces his/her position.
+. **Executive Committee (EC) Selection** Selection to the EC will be held if there is a vacant position at the EC. An EC position becomes vacant if an EC member reaches the end of his/her term or an EC member renounces his/her position.
 
 . **Nominating TC/OC candidates** Because there is a need to avoid concentration of TCs and OCs from the same region, we prioritize candidates of regions depending on the region where the current committee members reside. Currently, we prioritize candidates: 1^st^ North America, 2^nd^ Europe, and 3^rd^ other regions. To avoid such concentration, nomination of candidates from the same region of one current TC/OC member is not accepted. It is very important the TC/OC candidate are involved in the league and has experience with RoboCup Rescue competitions.
 
