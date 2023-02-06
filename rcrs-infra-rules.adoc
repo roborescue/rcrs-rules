@@ -1,7 +1,7 @@
-= Infrastructure Competition Rules: RoboCup 2022
+= Infrastructure Competition Rules: RoboCup 2023
 :author: RoboCup Rescue Simulation Organizers
-:revnumber: 2.0
-:revdate: January 11, 2022
+:revnumber: 2.1
+:revdate: February 07, 2023
 :size: A4
 :reproducible: true
 :encode: UTF-8
@@ -12,7 +12,7 @@
 :toclevels: 3
 :outlinelevels: 3
 :xrefstyle: short
-:source-highlighter: highlight.js
+:source-highlighter: rouge
 :title-page:
 :toc: left
 

@@ -1,7 +1,7 @@
-= Agent Simulation Competition Rules: RoboCup 2022
+= Agent Simulation Competition Rules: RoboCup 2023
 :author: RoboCup Rescue Simulation Organizers
-:revnumber: 2.0
-:revdate: Januray 13, 2022
+:revnumber: 2.1
+:revdate: February 07, 2023
 :size: A4
 :reproducible: true
 :encode: UTF-8
@@ -16,7 +16,7 @@
 :imagesdir: images
 :math:
 :stem: latexmath
-:source-highlighter: highlight.js
+:source-highlighter: rouge
 :title-page:
 :toc: left
 
@@ -24,75 +24,11 @@
 
 [#sec:purpose]
 == Purpose
-This document describes the rules of the RoboCup Rescue Agent Simulation competition and the major changes implemented in the simulator for the RoboCup 2022.
+This document describes the rules of the RoboCup Rescue Agent Simulation competition for the RoboCup 2023.
 
 [#sec:major_changes]
 == Major Changes
-The RoboCup Rescue Agent Simulation environment for the RoboCup 2022 incorporate major changes motivated by discussions with disaster management practitioners and academic researchers. The changes are intended (1) to make the simulation scenarios more realistic and (2) to target one relevant rescue challenge, i.e., civilian rescue. The major changes implemented are:
-
-1. Python support [<<sec:python_support>>]
-2. Docker support [<<sec:docker_support>>]
-3. Scenarios without fires [<<sec:no_fire>>]
-4. Changes to agents' action commands [<<sec:changes_action_commands>>]
-5. Refuges with limited capacity [<<sec:refuge_capacity>>]
-
-[#sec:python_support]
-=== Python support
-Teams can now choose to implement their agents in Java or Python. For teams that wish to continue implementing in Java no change is required. This is a new optional change to use a different programming language to communicate with the simulator.
-
-For ADF Java implementation:
-
-* Repository: https://github.com/roborescue/adf-sample-agent-java.
-* Documentation: https://github.com/roborescue/adf-sample-agent-java/blob/master/docs/manual.adoc.
-
-For Python implementation:
-
-* Repository: https://github.com/roborescue/rcrs-sample-agent-python.
-
-[#sec:docker_support]
-=== Docker support
-Teams can choose to setup their development environment locally or to use a pre-setup docker environment.
-
-* Repository: https://github.com/roborescue/rcrs-docker.
-
-[#sec:no_fire]
-=== No Fire Scenarios
-In real earthquake affected areas, few to no fire spots are observed. Those fires observed are mostly restricted to a building or a small area. In the RCRS, however, fires spreads quickly between the buildings if not controlled early in the simulation impacting heavily in the final agent teams' score.
-
-To make the simulation scenarios more realistic, fires were eliminated from the scenarios. Therefore, scenarios are defined without any initial fire spot and the _fire simulator_ and the _ignition simulator_ are configured so that fire never ignites during the simulation.
-
-In the no fire scenarios, Fire Brigade agents and Hydrants lose their original purpose. Hence, the Fire Brigade agents had their original goal switched from _extinguishing fire_ to _rescuing trapped civilians_, while Ambulance Teams original goal was changed to transporting injured civilians to refuges eliminating the ability to rescue trapped civilians (see <<sec:changes_action_commands>>).
-
-[#sec:changes_action_commands]
-=== Changes to Agents' Action Commands
-The updated action commands available to the agents are:
-
-* FIRE BRIGADE
-  ** [.line-through]#`EXTINGUISH_FIRE`#
-  ** `RESCUE`
-* Ambulance Teams
-  ** `LOAD`
-  ** `UNLOAD`
-  ** [.line-through]#`RESCUE`#
-* Police Forces
-  ** `CLEAR`
-
-[#sec:refuge_capacity]
-=== Refuge Capacity
-By eliminating the fire from scenarios, the most relevant challenge in the competition becomes to rescue trapped civilians and transport them to refuges. To make this task more challenging and realistic, refuges were changed in order to admit only a limited number of victims in its premises. Once the limit is reached, the refuge does not admit any further victims. This creates a challenge to the Ambulance Teams that need to decide where to transport the victims instead of simply taking them to the closest refuge.
-
-Several capacity properties were added to the refuges:
-
-  * `bedCapacity` - total number of beds available in the refuge
-  * `occupiedBeds` - number of occupied beds in the refuge
-  * `waitingListSize` - number of civilians already waiting in the queue for treatment in the refuge
-
-These properties are provided to Ambulance Centres every timestep of the simulation. Ambulance Teams can obtain this information from Ambulance Centres or directly from refuge when inside.
-
-When an Ambulance Team unloads a civilian in a refuge:
-
-  * If the number of occupied beds is less than the bed capacity (i.e., there are free beds), the civilian's `HP` property becomes constant and the `Damage` property decreases gradually at each step. When the `Damage` property reaches zero, then the victim is released from the bed.
-  * If there is no free bed in the refuge, the civilian is included into the waiting queue. This waiting queue works based on the First-In First-Out strategy, thus whenever a bed becomes available, the first civilian in the waiting queue is moved to the bed. When a civilian is in a waiting queue, its `Damage` and `HP` properties operate as if the civilian is outside of the refuge without assistance, thus the `Damage` property increases and the `HP` property decreases over time. If the `HP` property reaches zero, the civilian dies.
+There is not any major change since RoboCup 2022.
 
 [#sec:agent_simulation]
 == Agent Simulation Competition
@@ -103,7 +39,9 @@ The competition is divided in three rounds (i.e., preliminary, semifinal, and fi
 [#sec:agent_rules]
 === Rules
 
-. [[item:agents]]**Agents** Teams shall implement all types of agents using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] (a sample implementation is available at https://github.com/roborescue/adf-sample-agent-java[RCRS ADF Sample]) or the https://github.com/roborescue/rcrs-sample-agent-python[RCRS Core Python] that will be executed on the https://github.com/roborescue/rcrs-server[RoboCup Rescue Agent Simulator]. Teams using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] can only implement their own code to replace or extend the following RCRS ADF classes:
+. [[item:agents]]**Agents** Teams shall implement all types of agents using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] (a sample implementation is available at https://github.com/roborescue/adf-sample-agent-java[RCRS ADF Sample]) or the https://github.com/roborescue/rcrs-sample-agent-python[RCRS Core Python] (a sample implementation is available at https://github.com/roborescue/rcrs-sample-agent-python[RCRS Python Sample]) that will be executed on the https://github.com/roborescue/rcrs-server[RoboCup Rescue Agent Simulator].
++
+Teams using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] can only implement their own code to replace or extend the following RCRS ADF classes:
 +
 --
 ----
@@ -134,18 +72,18 @@ Participating teams must implement their code in a package named after their tea
   TEAM_YEAR.complex.TargetDetector
 ----
 
-For instance, if the short name of the participating team is TEST and the competition year is 2022, the participating team shall provide a package containing the methods:
+For instance, if the short name of the participating team is TEST and the competition year is 2023, the participating team shall provide a package containing the methods:
 
 ----
-  TEST_2022.centralized.CommandExecutor
-  TEST_2022.centralized.CommandPicker
-  TEST_2022.communication.ChannelSubscriber
-  TEST_2022.communication.MessageCoordinator
-  TEST_2022.extaction.ExtAction
-  TEST_2022.algorithm.Clustering
-  TEST_2022.algorithm.PathPlanning
-  TEST_2022.complex.TargetAllocator
-  TEST_2022.complex.TargetDetector
+  TEST_2023.centralized.CommandExecutor
+  TEST_2023.centralized.CommandPicker
+  TEST_2023.communication.ChannelSubscriber
+  TEST_2023.communication.MessageCoordinator
+  TEST_2023.extaction.ExtAction
+  TEST_2023.algorithm.Clustering
+  TEST_2023.algorithm.PathPlanning
+  TEST_2023.complex.TargetAllocator
+  TEST_2023.complex.TargetDetector
 ----
 
 Participating teams must provide a configuration file containing information of the classes they have changed from the original RCRS ADF and a mapping between classes, package path, and file in their code.
@@ -159,7 +97,7 @@ Participating teams must provide a configuration file containing information of 
 .. Teams are not allowed to have more than 50% of other agent team's code or logic in the classes
 +
 ----
-  adf.core.omponent.module.complex.TargetDetector
+  adf.core.component.module.complex.TargetDetector
   adf.core.component.module.complex.TargetAllocator
 ----
 
@@ -244,7 +182,7 @@ Teams that wish to request a rerun must do so in writing. The request must inclu
 
 . [[item:rule_dispute]]**Rule Dispute Resolution** If there is an ambiguity in the rule or any unexpected situation happens, a temporary committee composed of the Technical, Organizing, and Executive Committee members and the local chair have the power to take a decision regarding the issue. The temporary committee decision has the same effect as a rule.
 
-. [[item:open_source_policy]]**Open-Source Policy** Source-code files must be released open-source immediately after the end of the competition to guarantee fair play and to encourage community activity after competition. Log files and related parameter files will be open access.
+. [[item:open_source_policy]]**Open Source Policy** Source code files must be released open source immediately after the end of the competition to guarantee fair play and to encourage community activity after competition. Log files and related parameter files will be open access.
 
 [#sec:agent_presentation]
 === Presentation
@@ -280,21 +218,19 @@ Each round is composed of several sessions (stem:[$S$]), and at each session the
 
 Each session is comprised of a set of scenarios (stem:[$M$]), and each scenario also receives an identification ranging from stem:[$m_{1}$] to stem:[$m_{p}$], where stem:[$p$] represents the number of scenarios in that session.
 
-A score stem:[$SC_{ji}^{k}$] is assigned to each team stem:[$i \in T$] (stem:[$T = \{t_{1},\dots,t_{n}\}$]) at each session stem:[$k \in S$] (stem:[$S = \{s_{1},\dots,s_{n}\}$]) for each scenario stem:[$j \in M$] (stem:[$M = \{m_{1},\dots,m_{p}\}$]).
+A score stem:[$SC_{ji}^{k}$] is assigned to each team stem:[$i \in T$] (stem:[$T = \left(t_{1},\dots,t_{n}\right)$]) at each session stem:[$k \in S$] (stem:[$S = \left(s_{1},\dots,s_{n}\right)$]) for each scenario stem:[$j \in M$] (stem:[$M = \left(m_{1},\dots,m_{p}\right)$]).
 
 For each session stem:[$k$] and scenario stem:[$j$], the Selective Minimum (stem:[$SM_{j}^{k}$]) is calculated as
 
-stem:[$SM_{j}^{k} = max\left(SC_{ji}^{k}\right) - \left( \left( max \left( SC_{ji}^{k} \right) - mean \left( SC_{ji}^{k} \right)\right) \times 2 \right)$],
+stem:[$SM_{j}^{k} = max \left(SC_{ji}^{k}\right) - \left(\left( max \left( SC_{ji}^{k} \right) - mean \left( SC_{ji}^{k} \right)\right) \times 2 \right)$],
 
 and the Maximum Score (stem:[$MS_{j}^{k}$]) is calculated as
 
 stem:[MS_{j}^{k} = n \times SDC],
 
-where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2022 competition).
+where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2022 competition). The maximum value of each step is calculated as
 
-The maximum value of each step is calculated as
-
-stem:[$MSS_{j/step \in \{1,\dots,MS_{j}^{k}\}}^{k} = \frac{\left( \left( max \left( SC_{j}^{k} \right) - SM_{j}^{k} \right) \right)}{\left( MS_{j}^{k} \times \left( MS_{j}^{k} - step \right) \right)}$]
+stem:[$MSS_{j/step \in \left(1,\dots,MS_{j}^{k}\right)}^{k} = \frac{\left( \left( max \left( SC_{j}^{k} \right) - SM_{j}^{k} \right) \right)}{\left( MS_{j}^{k} \times \left( MS_{j}^{k} - step \right) \right)}$]
 
 To each participating team is assigned the step value, whose stem:[$MSS_{j/step}^{k}$] value is lower than the participating team' score, but the stem:[$MSS_{j/step+1}^{k}$] value is greater than the participating team' score.
 

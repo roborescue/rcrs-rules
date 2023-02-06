@@ -1,7 +1,7 @@
 = Committee Members Selection Rules
 :author: RoboCup Rescue Simulation Organizers
-:revnumber: 2.0
-:revdate: January 11, 2022
+:revnumber: 2.1
+:revdate: February 07, 2023
 :size: A4
 :reproducible: true
 :encode: UTF-8
@@ -14,7 +14,7 @@
 :xrefstyle: short
 :math:
 :stem: latexmath
-:source-highlighter: highlight.js
+:source-highlighter: rouge
 :title-page:
 :toc: left
 
@@ -67,11 +67,11 @@ TC/OC members that do not show commitment to the League and their responsibiliti
 [frame=topbot,grid=rows,stripes=none]
 [[table:current_members]]
 |===
-| **Role** | **Name**             | **Country**  | **Term** | **Period**
-| EC       | Farshid Faraji       | Iran         | 2^nd^    | 2018-2022
-| EC       | Luis G. Nardin       | France       | 2^nd^    | 2021-2024
-| TC       | Sayed M. R. Modaresi | France       | 2^nd^    | 2018-2022
-| TC       | Dinal Helal          | Ireland      | 1^st^    | 2021-2024
-| OC       | Kazunori Iwata       | Japan        | 2^nd^    | 2019-2023
-| OC       | Arman Absalan        | Iran         | 1^st^    | 2021-2024
+| **Role** | **Name**                  | **Country**  | **Term** | **Period**
+| EC         | Luis G. Nardin            | France         | 2^nd^        | 2021-2024
+| EC         | Sayed M. R. Modaresi | France         | 1^st^         | 2022-2025
+| TC         | Dinal Helal                 | Ireland         | 2^nd^        | 2021-2024
+| TC         | Kazunori Iwata           | Japan           | 1^st^         | 2022-2025
+| OC        | Nobuhiro Ito               | Japan           | 1^st^         | 2020-2023
+| OC        | Farshid Faraji             | Iran              | 1^st^         | 2022-2025
 |===
