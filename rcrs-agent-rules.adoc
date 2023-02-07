@@ -28,7 +28,7 @@ This document describes the rules of the RoboCup Rescue Agent Simulation competi
 
 [#sec:major_changes]
 == Major Changes
-There is not any major change since RoboCup 2022.
+There is not any major changes to the RCRS Simulator since RoboCup 2022. However, we encourage teams to develop their code using the new https://github.com/roborescue/rcrs-core-python[RCRS Core Python] in order to take advantage of state-of-the-art Machine Learning algorithms, such as SciKit, TensorFlow, PyTorch, among others.
 
 [#sec:agent_simulation]
 == Agent Simulation Competition
@@ -41,7 +41,7 @@ The competition is divided in three rounds (i.e., preliminary, semifinal, and fi
 
 . [[item:agents]]**Agents** Teams shall implement all types of agents using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] (a sample implementation is available at https://github.com/roborescue/adf-sample-agent-java[RCRS ADF Sample]) or the https://github.com/roborescue/rcrs-sample-agent-python[RCRS Core Python] (a sample implementation is available at https://github.com/roborescue/rcrs-sample-agent-python[RCRS Python Sample]) that will be executed on the https://github.com/roborescue/rcrs-server[RoboCup Rescue Agent Simulator].
 +
-Teams using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] can only implement their own code to replace or extend the following RCRS ADF classes:
+Teams using the https://github.com/roborescue/rcrs-core-python[RCRS Core Python] have no constraints in implementing their agents. However, teams using the https://github.com/roborescue/adf-core-java[RCRS ADF Framework] can only implement their own code to replace or extend the following RCRS ADF classes:
 +
 --
 ----
