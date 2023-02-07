@@ -228,7 +228,7 @@ and the Maximum Score (stem:[$MS_{j}^{k}$]) is calculated as
 
 stem:[MS_{j}^{k} = n \times SDC],
 
-where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2022 competition). The maximum value of each step is calculated as
+where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2023 competition). The maximum value of each step is calculated as
 
 stem:[$MSS_{j/step \in \left(1,\dots,MS_{j}^{k}\right)}^{k} = \frac{\left( \left( max \left( SC_{j}^{k} \right) - SM_{j}^{k} \right) \right)}{\left( MS_{j}^{k} \times \left( MS_{j}^{k} - step \right) \right)}$]
 
