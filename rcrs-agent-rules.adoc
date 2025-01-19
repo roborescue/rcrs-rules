@@ -1,4 +1,4 @@
-= Agent Simulation Competition Rules: RoboCup 2023
+= Agent Simulation Competition Rules: RoboCup 2025
 :author: RoboCup Rescue Simulation Organizers
 :revnumber: 2.1
 :revdate: February 07, 2023
@@ -24,7 +24,7 @@
 
 [#sec:purpose]
 == Purpose
-This document describes the rules of the RoboCup Rescue Agent Simulation competition for the RoboCup 2023.
+This document describes the rules of the RoboCup Rescue Agent Simulation competition for the RoboCup 2025.
 
 [#sec:major_changes]
 == Major Changes
@@ -72,18 +72,18 @@ Participating teams must implement their code in a package named after their tea
   TEAM_YEAR.complex.TargetDetector
 ----
 
-For instance, if the short name of the participating team is TEST and the competition year is 2023, the participating team shall provide a package containing the methods:
+For instance, if the short name of the participating team is TEST and the competition year is 2025, the participating team shall provide a package containing the methods:
 
 ----
-  TEST_2023.centralized.CommandExecutor
-  TEST_2023.centralized.CommandPicker
-  TEST_2023.communication.ChannelSubscriber
-  TEST_2023.communication.MessageCoordinator
-  TEST_2023.extaction.ExtAction
-  TEST_2023.algorithm.Clustering
-  TEST_2023.algorithm.PathPlanning
-  TEST_2023.complex.TargetAllocator
-  TEST_2023.complex.TargetDetector
+  TEST_2025.centralized.CommandExecutor
+  TEST_2025.centralized.CommandPicker
+  TEST_2025.communication.ChannelSubscriber
+  TEST_2025.communication.MessageCoordinator
+  TEST_2025.extaction.ExtAction
+  TEST_2025.algorithm.Clustering
+  TEST_2025.algorithm.PathPlanning
+  TEST_2025.complex.TargetAllocator
+  TEST_2025.complex.TargetDetector
 ----
 
 Participating teams must provide a configuration file containing information of the classes they have changed from the original RCRS ADF and a mapping between classes, package path, and file in their code.
@@ -228,7 +228,7 @@ and the Maximum Score (stem:[$MS_{j}^{k}$]) is calculated as
 
 stem:[MS_{j}^{k} = n \times SDC],
 
-where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2023 competition). The maximum value of each step is calculated as
+where stem:[$n$] is the number of participating teams on session stem:[$k$], and stem:[$SDC$] is the coefficient indicating the step between points among teams (we will use stem:[$SDC = 2$] in RoboCup Rescue 2025 competition). The maximum value of each step is calculated as
 
 stem:[$MSS_{j/step \in \left(1,\dots,MS_{j}^{k}\right)}^{k} = \frac{\left( \left( max \left( SC_{j}^{k} \right) - SM_{j}^{k} \right) \right)}{\left( MS_{j}^{k} \times \left( MS_{j}^{k} - step \right) \right)}$]
 
